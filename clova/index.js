@@ -9,6 +9,7 @@ exports.clovaFulfillment = function (req, res) {
 		"step": 0
 	}
 	let params = req.body;
+	console.log(params);
 	
 	try {
 		let formerAttributes = params.session.sessionAttributes;
@@ -17,7 +18,7 @@ exports.clovaFulfillment = function (req, res) {
 		attributes.recipe = formerAttributes.recipe;
 		attributes.step = formerAttributes.step;
 	} catch (e) {
-		console.log(e);
+		//console.log(e);
 	}
 	
 	try {
@@ -25,7 +26,7 @@ exports.clovaFulfillment = function (req, res) {
 		
 		attributes.formerIntent = intent;
 	} catch (e) {
-		console.log(e);
+		//console.log(e);
 	}
 	
 	
