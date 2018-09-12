@@ -1,0 +1,18 @@
+{
+  "name": "clova",
+  "version": "1.0.0",
+  "description": "Yori clova server",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "clova"
+  ],
+  "author": "ysb",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.16.3",
+    "npm": "^6.4.1"
+  }
+}
