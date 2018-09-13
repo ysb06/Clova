@@ -44,7 +44,7 @@ exports.clovaFulfillment = function (req, res) {
 	result.response.outputSpeech.values.push(getSpeech('테스트 중입니다.'));
 	//result.response.outputSpeech.values.push(getURL(waitingMusic));
 	
-	result.response.directives = getPlayDirective(waitingMusic);
+	result.response.directives.push(getPlayDirective(waitingMusic));
 	
 	//----처리 완료----//
 	console.log('Response out -->');
