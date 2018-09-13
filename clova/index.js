@@ -26,9 +26,18 @@ exports.clovaFulfillment = function (req, res) {
 	}
 	
 	try {
-		let intent = params.request.intent.name;
-		
-		attributes.formerIntent = intent;
+		let request = params.request.type;
+		switch(request) {
+			case 'LaunchRequest':
+				break;
+			case 'IntentRequest':
+				attributes.formerIntent = params.request.intent.name;
+				break;
+			case 'SessionEndedRequest':
+				result.response.outputSpeech.values.push(getSpeech('모두의 요리사 종료합니다'));
+				result.response.shouldEndSession = true;
+				break;
+		}
 	} catch (e) {
 		console.log(e);
 	}
@@ -43,12 +52,15 @@ exports.clovaFulfillment = function (req, res) {
 	
 	result.response.outputSpeech.values.push(getSpeech('테스트 중입니다.'));
 	//result.response.outputSpeech.values.push(getURL(waitingMusic));
-	
 	result.response.directives.push(getPlayDirective(waitingMusic));
 	
 	//----처리 완료----//
 	console.log('Response out -->');
 	console.log(result);
+	console.log(result.response.outputSpeech.values);
+	console.log('<-- Directives -->');
+	console.log(result.response.directives);
+	console.log(result.response.directives[0].payload);
 	res.json(result);
 };
 
@@ -92,26 +104,34 @@ function getURL(url) {
 
 function getPlayDirective(url) {
 	let directive = {
-		namespace: 'AudioPlayer',
-		name: 'Play',
+		header: {
+			namespace: "AudioPlayer",
+			name: "Play"
+		},
 		payload: {
 			audioItem: {
 				audioItemId: uuid(),
+				episodeId: 22346122,
 				stream: {
 					beginAtInMilliseconds: 0,
 					episodeId: 22346122,
 					playType: "NONE",
 					token: uuid(),
+					progressReport: {
+						"progressReportDelayInMilliseconds": null,
+						"progressReportIntervalInMilliseconds": 30000,
+						"progressReportPositionInMilliseconds": null
+					},
 					url: url,
 					urlPlayable: true
 				},
-				titleText: 'Waiting...',
 				titleSubText1: 'ysb',
+				titleText: 'Waiting...',
 				type: 'custom'
 			},
 			playBehavior: "REPLACE_ALL",
 			source: {
-				name: "모두요리"
+				name: "모두의 요리사"
 			}
 		}
 	}
