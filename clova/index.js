@@ -82,7 +82,7 @@ class ClovaResult {
 				namespace: "PlaybackController",
 				name: text,
 				dialogRequestId: uuid(),
-				messageId: uuid()"
+				messageId: uuid()
 			},
 			"payload": {}
 		}
