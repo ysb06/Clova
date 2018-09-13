@@ -12,6 +12,7 @@ exports.clovaFulfillment = function (req, res) {
 		"step": 0
 	}
 	let params = req.body;
+	console.log('Request in -->');
 	console.log(params);
 	
 	try {
@@ -34,18 +35,20 @@ exports.clovaFulfillment = function (req, res) {
 	
 	//intent request와 event Request는 다르게 처리해야 함
 	
-	console.log('Time: ' + cDate.toFormat('YYYY-MM-DD HH24:MI:SS'));	
+	console.log('\nTime: ' + cDate.toFormat('YYYY-MM-DD HH24:MI:SS'));	
 	console.log('Intent: ' + attributes.formerIntent);	
 	
 	let result = initializeJSON(attributes);
 	//----------------- intent 및 event 처리 -------------------//
+	
 	result.response.outputSpeech.values.push(getSpeech('테스트 중입니다.'));
 	//result.response.outputSpeech.values.push(getURL(waitingMusic));
 	
-	result.response.directives.push(getPlayDirective(waitingMusic));
-	
+	result.response.directives = getPlayDirective(waitingMusic);
 	
 	//----처리 완료----//
+	console.log('Response out -->');
+	console.log(result);
 	res.json(result);
 };
 
@@ -68,23 +71,27 @@ function initializeJSON(attributes) {
 }
 
 function getSpeech(text) {
-	return {
+	let plainText = {
         type: 'PlainText',
         lang: 'ko',
         value: text,
-	};
+	}
+	
+	return plainText;
 }
 
 function getURL(url) {
-	return {
+	let urlObj = {
         type: 'URL',
         lang: '',
         value: url,
-	};
+	}
+	
+	return urlObj;
 }
 
 function getPlayDirective(url) {
-	return {
+	let directive = {
 		namespace: 'AudioPlayer',
 		name: 'Play',
 		payload: {
@@ -92,17 +99,22 @@ function getPlayDirective(url) {
 				audioItemId: uuid(),
 				stream: {
 					beginAtInMilliseconds: 0,
+					episodeId: 22346122,
 					playType: "NONE",
 					token: uuid(),
 					url: url,
 					urlPlayable: true
 				},
+				titleText: 'Waiting...',
+				titleSubText1: 'ysb',
+				type: 'custom'
 			},
 			playBehavior: "REPLACE_ALL",
-			source: {					
-				logoUrl: `${DOMAIN}/img_sound_rain_108.png`,
+			source: {
 				name: "모두요리"
 			}
 		}
 	}
+	
+	return directive;
 }
