@@ -103,7 +103,6 @@ exports.clovaFulfillment = function (req, res) {
 		case 'EventRequest':
 			let clovaEvent = params.request.event.name;
 			console.log('Event --> ' + clovaEvent);
-			clovaResponse.addSimpleSpeech('아직 뭘 해야 할지 모르겠네요.');
 			break;
 		case 'IntentRequest':
 			let intent = params.request.intent.name;
