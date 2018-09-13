@@ -97,8 +97,8 @@ exports.clovaFulfillment = function (req, res) {
 	let params = req.body;
 	console.log('Request in -->\n');
 	console.log(params);
-	
 	let clovaReq = 'NaN';
+	let isIntent = true;
 	
 	try {
 		clovaReq = params.request.type;
@@ -116,17 +116,7 @@ exports.clovaFulfillment = function (req, res) {
 		case 'EventRequest':
 			let clovaEvent = params.request.event.name;
 			console.log('Event --> ' + clovaEvent);
-			switch (clovaEvent) {
-				case 'PlayPaused':
-					clovaResponse.addPlayControllerDirective('Pause');
-					break;
-				case 'PlayStopped':
-					clovaResponse.addPlayControllerDirective('Stop');
-					break;
-				case 'PlayResumed':
-					clovaResponse.addPlayControllerDirective('Resume');
-					break;
-			}
+			isIntent = false;
 			break;
 		case 'IntentRequest':
 			let intent = params.request.intent.name;
@@ -148,7 +138,8 @@ exports.clovaFulfillment = function (req, res) {
 	console.log(result.response.directives);
 	console.log(result.response.directives[0].payload);
 	*/
-	res.json(clovaResponse.result);
+	if(isIntent)
+		res.json(clovaResponse.result);
 };
 
 function initializeJSON(attributes) {
