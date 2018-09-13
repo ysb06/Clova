@@ -116,13 +116,13 @@ exports.clovaFulfillment = function (req, res) {
 			console.log('Event --> ' + clovaEvent);
 			switch (clovaEvent) {
 				case 'PlayPaused':
-					addPlayControllerDirective('Pause');
+					clovaResponse.addPlayControllerDirective('Pause');
 					break;
 				case 'PlayStopped':
-					addPlayControllerDirective('Stop');
+					clovaResponse.addPlayControllerDirective('Stop');
 					break;
 				case 'PlayResumed':
-					addPlayControllerDirective('Resume');
+					clovaResponse.addPlayControllerDirective('Resume');
 					break;
 			}
 			break;
