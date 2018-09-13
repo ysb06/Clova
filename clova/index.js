@@ -1,7 +1,10 @@
+const waitingMusic = 'https://www.sample-videos.com/audio/mp3/crowd-cheering.mp3'
+const uuid = require('uuid').v4;
+const timeUtil = require('date-utils');
+const { DOMAIN } = require('../config');
+
 exports.clovaFulfillment = function (req, res) {
-	let timeUtil = require('date-utils');
 	let cDate = new Date();
-	
 	let attributes = {
 		"formerIntent": 'NaN',
 		"recommendation": 0,
@@ -18,7 +21,7 @@ exports.clovaFulfillment = function (req, res) {
 		attributes.recipe = formerAttributes.recipe;
 		attributes.step = formerAttributes.step;
 	} catch (e) {
-		//console.log(e);
+		console.log(e);
 	}
 	
 	try {
@@ -26,17 +29,23 @@ exports.clovaFulfillment = function (req, res) {
 		
 		attributes.formerIntent = intent;
 	} catch (e) {
-		//console.log(e);
+		console.log(e);
 	}
 	
+	//intent request와 event Request는 다르게 처리해야 함
 	
 	console.log('Time: ' + cDate.toFormat('YYYY-MM-DD HH24:MI:SS'));	
 	console.log('Intent: ' + attributes.formerIntent);	
 	
-	result = initializeJSON(attributes);
+	let result = initializeJSON(attributes);
+	//----------------- intent 및 event 처리 -------------------//
 	result.response.outputSpeech.values.push(getSpeech('테스트 중입니다.'));
-	result.response.outputSpeech.values.push(getURL('테스트 중입니다.'));
+	//result.response.outputSpeech.values.push(getURL(waitingMusic));
 	
+	result.response.directives.push(getPlayDirective(waitingMusic));
+	
+	
+	//----처리 완료----//
 	res.json(result);
 };
 
@@ -58,7 +67,6 @@ function initializeJSON(attributes) {
 	return result;
 }
 
-
 function getSpeech(text) {
 	return {
         type: 'PlainText',
@@ -71,7 +79,30 @@ function getURL(url) {
 	return {
         type: 'URL',
         lang: '',
-        value: 'https://www.sample-videos.com/audio/mp3/crowd-cheering.mp3',
+        value: url,
 	};
 }
 
+function getPlayDirective(url) {
+	return {
+		namespace: 'AudioPlayer',
+		name: 'Play',
+		payload: {
+			audioItem: {
+				audioItemId: uuid(),
+				stream: {
+					beginAtInMilliseconds: 0,
+					playType: "NONE",
+					token: uuid(),
+					url: url,
+					urlPlayable: true
+				},
+			},
+			playBehavior: "REPLACE_ALL",
+			source: {					
+				logoUrl: `${DOMAIN}/img_sound_rain_108.png`,
+				name: "모두요리"
+			}
+		}
+	}
+}
