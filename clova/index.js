@@ -85,13 +85,15 @@ class ClovaResult {
 				messageId: uuid()
 			},
 			"payload": {}
-		}
+		};
+		
+		this.result.response.directives.push(directive);
 	}
 }
 
 exports.clovaFulfillment = function (req, res) {
 	let cDate = new Date();
-	console.log('Time: ' + cDate.toFormat('YYYY-MM-DD HH24:MI:SS'));
+	console.log('\n\nTime: ' + cDate.toFormat('YYYY-MM-DD HH24:MI:SS'));
 	let params = req.body;
 	console.log('Request in -->\n');
 	console.log(params);
@@ -106,7 +108,7 @@ exports.clovaFulfillment = function (req, res) {
 	
 	let clovaResponse = new ClovaResult(req);
 	//----------------- intent 및 event 처리 -------------------//
-	console.log('\n\n');
+	console.log('\n');
 	switch(clovaReq) {
 		case 'LaunchRequest':
 			clovaResponse.addSimpleSpeech('아무 말이나 해보세요.');
