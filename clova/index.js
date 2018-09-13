@@ -82,7 +82,8 @@ exports.clovaFulfillment = function (req, res) {
 	let cDate = new Date();
 	console.log('Time: ' + cDate.toFormat('YYYY-MM-DD HH24:MI:SS'));
 	let params = req.body;
-	console.log('Request in -->\n' + params);
+	console.log('Request in -->\n');
+	console.log(params);
 	
 	let clovaReq = 'NaN';
 	
