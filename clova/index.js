@@ -38,14 +38,15 @@ exports.clovaFulfillment = function (req, res) {
 				result.response.shouldEndSession = true;
 				break;
 		}
+		console.log('\nRequest: ' + request);
 	} catch (e) {
 		console.log(e);
 	}
 	
 	//intent request와 event Request는 다르게 처리해야 함
 	
-	console.log('\nTime: ' + cDate.toFormat('YYYY-MM-DD HH24:MI:SS'));	
-	console.log('Intent: ' + attributes.formerIntent);	
+	console.log('Time: ' + cDate.toFormat('YYYY-MM-DD HH24:MI:SS'));	
+	console.log('Intent: ' + attributes.formerIntent + '\n');	
 	
 	let result = initializeJSON(attributes);
 	//----------------- intent 및 event 처리 -------------------//
@@ -117,11 +118,6 @@ function getPlayDirective(url) {
 					episodeId: 22346122,
 					playType: "NONE",
 					token: uuid(),
-					progressReport: {
-						"progressReportDelayInMilliseconds": null,
-						"progressReportIntervalInMilliseconds": 30000,
-						"progressReportPositionInMilliseconds": null
-					},
 					url: url,
 					urlPlayable: true
 				},
