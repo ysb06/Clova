@@ -54,10 +54,8 @@ class ClovaResult {
 			payload: {
 				audioItem: {
 					audioItemId: uuid(),
-					episodeId: 22346122,
 					stream: {
 						beginAtInMilliseconds: 0,
-						episodeId: 22346122,
 						playType: "NONE",
 						token: uuid(),
 						url: url,
@@ -75,6 +73,19 @@ class ClovaResult {
 		};
 		
 		this.result.response.directives.push(directive);
+	}
+	
+	//Pause, Resume, Stop
+	addPlayControllerDirective(text) {
+		let directive = {
+			header: {
+				namespace: "PlaybackController",
+				name: text,
+				dialogRequestId: uuid(),
+				messageId: uuid()"
+			},
+			"payload": {}
+		}
 	}
 }
 
@@ -103,6 +114,17 @@ exports.clovaFulfillment = function (req, res) {
 		case 'EventRequest':
 			let clovaEvent = params.request.event.name;
 			console.log('Event --> ' + clovaEvent);
+			switch (clovaEvent) {
+				case 'PlayPaused':
+					addPlayControllerDirective('Pause');
+					break;
+				case 'PlayStopped':
+					addPlayControllerDirective('Stop');
+					break;
+				case 'PlayResumed':
+					addPlayControllerDirective('Resume');
+					break;
+			}
 			break;
 		case 'IntentRequest':
 			let intent = params.request.intent.name;
