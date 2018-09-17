@@ -117,8 +117,10 @@ class ClovaResult {
 }
 
 exports.clovaFulfillment = function (req, res) {
+	//현 함수에서는 다음과 같은 기능을 정의하고 있음
+	//대화 처리 준비, 대화 세션 저장 및 불러오기, 새 대화일 경우 대화 생성, 최종 Result를 Response, 수신 및 송신 로그 출력
 	let cDate = new Date();
-	console.log('\n---------------------------- ' + cDate.toFormat('YYYY-MM-DD HH24:MI:SS') + ' (' +cDate.getTime() + ') ----------------------------');
+	console.log('\n--------------------- ' + cDate.toFormat('YYYY-MM-DD HH24:MI:SS') + ' (' +cDate.getTime() + ') ---------------------');
 	let params = req.body;
 	console.log('Request in -->\n');
 	console.log(params);
@@ -163,7 +165,7 @@ exports.clovaFulfillment = function (req, res) {
 	console.log('Active --> ' + fullfilmentsResult.length)
 
 	//----------------- intent 및 event 처리 -------------------//
-	detectIntent(clovaReq, clovaResponse);
+	clovaResponse = detectIntent(clovaReq, clovaResponse);
 	//----처리 완료----//
 
 	console.log('\nResponse out -->');
@@ -176,7 +178,7 @@ exports.clovaFulfillment = function (req, res) {
 	*/
 	if(isIntent)
 		res.json(clovaResponse.result);
-	console.log('------------------------------------------------------------------------------------\n');
+	console.log('-------------------------------------------------------------------------------\n');
 };
 
 //-------------------- Intent 처리 --------------------//
@@ -202,7 +204,9 @@ function detectIntent(requestType, clovaResponse) {
 			clovaResponse.addSimpleSpeech('에러가 발생했습니다.');
 			console.log('Other Request --> ' + requestType);
 			break;
-	}	
+	}
+	
+	return clovaResponse;
 }
 //-------------------- 사용 되지 않는 코드 --------------------//
 
