@@ -58,14 +58,6 @@ class ClovaResult {
 		}
 	}
 	
-	initializeResult() {
-		this.result.response = {
-				"card": {},
-				"directives": [],
-				"shouldEndSession": false
-			}
-	}
-	
 	addSimpleSpeech(text) {
 		let plainText = {
 			type: 'PlainText',
@@ -163,12 +155,13 @@ exports.clovaFulfillment = function (req, res) {
 	let clovaResponse;		//현재 대화
 	let newResults = new Array();
 	fullfilmentsResult.forEach(result => {
-		if((sessionID == result.sessionID || audioToken == result.audioToken) && !(audioToken == 'NaN')) {
+		//현재 세션인지 여부 판단 및 추출, sessionID가 다르더라도 audioToken이 같으면 현재 Dialogue로 보고 세트
+		if((sessionID == result.sessionID || audioToken == result.audioToken) && !(audioToken == 'NaN')) {			
+			result = new ClovaResult(req, cDate.getTime()); //현재 세션일 경우 해당 세션 리셋(재생성)
 			clovaResponse = result;
-			result.sessionID = sessionID;
 		}
+		//시간이 오래된 세션을 제외
 		if(cDate.getTime() - result.timeID < sessionExpireTime) {
-			result.initializeResult();
 			newResults.push(result);
 		}
 	});
