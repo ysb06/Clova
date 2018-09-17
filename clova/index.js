@@ -3,8 +3,12 @@ const uuid = require('uuid').v4;
 const timeUtil = require('date-utils');
 const { DOMAIN } = require('../config');
 
+const sessionExpireTime = 600000;
+
+let fullfilmentsResult = new Array();		//기억 중인 세션, 10분 후 저장된 세션은 Disable 됨
+
 class ClovaResult {
-	constructor (request) {
+	constructor (request, timeStamp) {
 		let attributes = {
 			"formerIntent": 'NaN',
 			"recommendation": 0,
@@ -24,15 +28,29 @@ class ClovaResult {
 			"version": "0.1.0",
 			"sessionAttributes": attributes,
 			"response": {
-				"outputSpeech": {
-					"type": "SpeechList",
-					"values": []
-				},
 				"card": {},
 				"directives": [],
 				"shouldEndSession": false
 			}
 		}
+		
+		this.sessionID = 'NaN';
+		this.audioToken = 'NaN';
+		this.timeID = timeStamp;
+		try {
+			this.sessionID = request.body.session.sessionId;
+			this.audioToken = request.body.context.AudioPlayer.token;
+		} catch (e) {
+			console.log(e);
+		}
+	}
+	
+	initializeResult() {
+		this.result.response = {
+				"card": {},
+				"directives": [],
+				"shouldEndSession": false
+			}
 	}
 	
 	addSimpleSpeech(text) {
@@ -41,6 +59,13 @@ class ClovaResult {
 			lang: 'ko',
 			value: text,
 		};
+		
+		if(this.result.response.outputSpeech === undefined) {
+			this.result.response.outputSpeech = {
+					"type": "SpeechList",
+					"values": []
+				};
+		}
 		
 		this.result.response.outputSpeech.values.push(plainText);
 	}
@@ -93,7 +118,7 @@ class ClovaResult {
 
 exports.clovaFulfillment = function (req, res) {
 	let cDate = new Date();
-	console.log('\n\nTime: ' + cDate.toFormat('YYYY-MM-DD HH24:MI:SS'));
+	console.log('\n---------------------------- ' + cDate.toFormat('YYYY-MM-DD HH24:MI:SS') + ' (' +cDate.getTime() + ') ----------------------------');
 	let params = req.body;
 	console.log('Request in -->\n');
 	console.log(params);
@@ -106,12 +131,61 @@ exports.clovaFulfillment = function (req, res) {
 		console.log(e);
 	}
 	
-	let clovaResponse = new ClovaResult(req);
-	//----------------- intent 및 event 처리 -------------------//
+	let sessionID = 'NaN';
+	let audioToken = 'NaN';
+	try {
+		sessionID = params.session.sessionId;
+		audioToken = params.context.AudioPlayer.token;
+	} catch (e) {
+		console.log(e);
+	}
+	
 	console.log('\n');
-	switch(clovaReq) {
+	let clovaResponse;		//현재 대화
+	let newResults = new Array();
+	fullfilmentsResult.forEach(result => {
+		if(sessionID == result.sessionID || audioToken == result.audioToken) {
+			clovaResponse = result;
+			result.sessionID = sessionID;
+		}
+		if(cDate.getTime() - result.timeID < sessionExpireTime) {
+			result.initializeResult();
+			newResults.push(result);
+		}
+	});
+	if(clovaResponse === undefined) {
+		clovaResponse = new ClovaResult(req, cDate.getTime());
+		console.log('New Dialogue');
+		newResults.push(clovaResponse);
+	}
+	console.log('Current Dialogue--> ' + clovaResponse.sessionID + ', ' + clovaResponse.audioToken);
+	fullfilmentsResult = newResults;
+	console.log('Active --> ' + fullfilmentsResult.length)
+
+	//----------------- intent 및 event 처리 -------------------//
+	detectIntent(clovaReq, clovaResponse);
+	//----처리 완료----//
+
+	console.log('\nResponse out -->');
+	console.log(clovaResponse.result);
+	/*
+	console.log(result.response.outputSpeech.values);
+	console.log('<-- Directives -->');
+	console.log(result.response.directives);
+	console.log(result.response.directives[0].payload);
+	*/
+	if(isIntent)
+		res.json(clovaResponse.result);
+	console.log('------------------------------------------------------------------------------------\n');
+};
+
+//-------------------- Intent 처리 --------------------//
+
+function detectIntent(requestType, clovaResponse) {
+	switch(requestType) {
 		case 'LaunchRequest':
 			clovaResponse.addSimpleSpeech('아무 말이나 해보세요.');
+			console.log('LaunchRequest --> ');
 			break;
 		case 'EventRequest':
 			let clovaEvent = params.request.event.name;
@@ -122,25 +196,15 @@ exports.clovaFulfillment = function (req, res) {
 			let intent = params.request.intent.name;
 			clovaResponse.addSimpleSpeech(intent + ' 인텐트. 샘플 노래를 재생합니다.');
 			clovaResponse.addPlayDirective(waitingMusic);
+			console.log('Intent --> ' + intent);
 			break;
 		default:
 			clovaResponse.addSimpleSpeech('에러가 발생했습니다.');
-			console.log('Request --> ' + clovaReq);
+			console.log('Other Request --> ' + requestType);
 			break;
 	}	
-	//----처리 완료----//
-
-	console.log('Response out -->');
-	console.log(clovaResponse.result);
-	/*
-	console.log(result.response.outputSpeech.values);
-	console.log('<-- Directives -->');
-	console.log(result.response.directives);
-	console.log(result.response.directives[0].payload);
-	*/
-	if(isIntent)
-		res.json(clovaResponse.result);
-};
+}
+//-------------------- 사용 되지 않는 코드 --------------------//
 
 function initializeJSON(attributes) {
 	let result = {
