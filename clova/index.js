@@ -95,7 +95,7 @@ class ClovaResult {
 					stream: {
 						beginAtInMilliseconds: 0,
 						playType: "NONE",
-						token: uuid(),
+						token: '5e4c9d84-0fe9-48de-bd35-acf2fd0b6beb',
 						url: url,
 						urlPlayable: true
 					},
