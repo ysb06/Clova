@@ -91,7 +91,7 @@ class ClovaResult {
 			},
 			payload: {
 				audioItem: {
-					audioItemId: uuid(),
+					audioItemId: '3719c0f5-f300-4dea-ab7b-67cc35272c10',
 					stream: {
 						beginAtInMilliseconds: 0,
 						playType: "NONE",
