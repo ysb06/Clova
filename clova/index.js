@@ -210,6 +210,7 @@ function detectIntent(requestType, clovaResponse) {
 			let clovaEvent = clovaResponse.clovaEvent;
 			console.log('Event --> ' + clovaEvent);
 			isIntent = false;
+			clovaResponse.setDialogueEnd();
 			break;
 		case 'IntentRequest':
 			let intent = clovaResponse.intent;
