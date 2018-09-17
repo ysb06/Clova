@@ -9,6 +9,19 @@ let fullfilmentsResult = new Array();		//기억 중인 세션, 10분 후 저장�
 
 class ClovaResult {
 	constructor (request, timeStamp) {
+		this.sessionID = 'NaN';
+		this.audioToken = 'NaN';
+		this.timeID = timeStamp;
+		try {
+			this.sessionID = request.body.session.sessionId;
+			this.audioToken = request.body.context.AudioPlayer.token;
+		} catch (e) {
+			console.log(e);
+		}
+		this.initialize(request.body);
+	}
+	
+	initialize(params) {	
 		let attributes = {
 			"formerIntent": 'NaN',
 			"recommendation": 0,
@@ -17,9 +30,9 @@ class ClovaResult {
 		}
 		// Attribute 초기화, Attribute가 없으면 에러로 인한 무시
 		try {
-			attributes.recommendation = request.body.session.sessionAttributes.recommendation;
-			attributes.recipe = request.body.session.sessionAttributes.recipe;
-			attributes.step = request.body.session.sessionAttributes.step;
+			attributes.recommendation = params.session.sessionAttributes.recommendation;
+			attributes.recipe = params.session.sessionAttributes.recipe;
+			attributes.step = params.session.sessionAttributes.step;
 		} catch (e) {
 			console.log(e);
 		}
@@ -34,29 +47,20 @@ class ClovaResult {
 			}
 		}
 		
-		this.sessionID = 'NaN';
-		this.audioToken = 'NaN';
-		this.timeID = timeStamp;
-		try {
-			this.sessionID = request.body.session.sessionId;
-			this.audioToken = request.body.context.AudioPlayer.token;
-		} catch (e) {
-			console.log(e);
-		}
-		
 		this.intent = 'NaN';
 		this.clovaEvent = 'NaN';
 		try {
-			this.intent = request.body.request.intent.name;
+			this.intent = params.request.intent.name;
 		} catch (e) {
 			console.log(e);
 		}
 		try {
-			this.clovaEvent = request.body.request.event.name;
+			this.clovaEvent = params.request.event.name;
 		} catch (e) {
 			console.log(e);
 		}
 	}
+	
 	
 	addSimpleSpeech(text) {
 		let plainText = {
@@ -87,7 +91,7 @@ class ClovaResult {
 					stream: {
 						beginAtInMilliseconds: 0,
 						playType: "NONE",
-						token: '5e4c9d84-0fe9-48de-bd35-acf2fd0b6beb',
+						token: this.sessionID,
 						url: url,
 						urlPlayable: true
 					},
@@ -157,7 +161,8 @@ exports.clovaFulfillment = function (req, res) {
 	fullfilmentsResult.forEach(result => {
 		//현재 세션인지 여부 판단 및 추출, sessionID가 다르더라도 audioToken이 같으면 현재 Dialogue로 보고 세트
 		if((sessionID == result.sessionID || audioToken == result.audioToken) && !(audioToken == 'NaN')) {			
-			result = new ClovaResult(req, cDate.getTime()); //현재 세션일 경우 해당 세션 리셋(재생성)
+			result.initialize(req.body); //현재 세션일 경우 해당 세션 리셋(재생성)
+			result.sessionID = sessionID;	//세션 ID 갱신
 			clovaResponse = result;
 		}
 		//시간이 오래된 세션을 제외
