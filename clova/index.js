@@ -113,7 +113,7 @@ class ClovaResult {
 		this.result.response.directives.push(directive);
 	}
 	
-	//Pause, Resume, Stop
+	//'Pause', 'Resume', 'Stop'
 	addPlayControllerDirective(text) {
 		let directive = {
 			header: {
@@ -126,6 +126,10 @@ class ClovaResult {
 		};
 		
 		this.result.response.directives.push(directive);
+	}
+	
+	setDialogueEnd() {
+		this.result.response.shouldEndSession = true;
 	}
 }
 
@@ -200,7 +204,9 @@ function detectIntent(requestType, clovaResponse) {
 	switch(requestType) {
 		case 'LaunchRequest':
 			clovaResponse.addSimpleSpeech('아무 말이나 해보세요.');
+			clovaResponse.addPlayDirective(waitingMusic);
 			console.log('LaunchRequest --> ');
+			clovaResponse.setDialogueEnd();
 			break;
 		case 'EventRequest':
 			let clovaEvent = clovaResponse.clovaEvent;
