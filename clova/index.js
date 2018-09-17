@@ -146,7 +146,7 @@ exports.clovaFulfillment = function (req, res) {
 	let clovaResponse;		//현재 대화
 	let newResults = new Array();
 	fullfilmentsResult.forEach(result => {
-		if(sessionID == result.sessionID || audioToken == result.audioToken) {
+		if((sessionID == result.sessionID || audioToken == result.audioToken) && !(audioToken == 'NaN')) {
 			clovaResponse = result;
 			result.sessionID = sessionID;
 		}
