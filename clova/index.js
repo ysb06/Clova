@@ -43,6 +43,19 @@ class ClovaResult {
 		} catch (e) {
 			console.log(e);
 		}
+		
+		this.intent = 'NaN';
+		this.clovaEvent = 'NaN';
+		try {
+			this.intent = request.body.request.intent.name;
+		} catch (e) {
+			console.log(e);
+		}
+		try {
+			this.clovaEvent = request.body.request.event.name;
+		} catch (e) {
+			console.log(e);
+		}
 	}
 	
 	initializeResult() {
@@ -190,12 +203,12 @@ function detectIntent(requestType, clovaResponse) {
 			console.log('LaunchRequest --> ');
 			break;
 		case 'EventRequest':
-			let clovaEvent = params.request.event.name;
+			let clovaEvent = clovaResponse.clovaEvent;
 			console.log('Event --> ' + clovaEvent);
 			isIntent = false;
 			break;
 		case 'IntentRequest':
-			let intent = params.request.intent.name;
+			let intent = clovaResponse.intent;
 			clovaResponse.addSimpleSpeech(intent + ' 인텐트. 샘플 노래를 재생합니다.');
 			clovaResponse.addPlayDirective(waitingMusic);
 			console.log('Intent --> ' + intent);
