@@ -1,0 +1,481 @@
+--------------------- 2018-09-18 06:25:44 (1537251944475) ---------------------
+Request in -->
+
+{ version: '1.0',
+  session:
+   { new: true,
+     sessionAttributes: {},
+     sessionId: 'a87e78db-15c2-4f15-b6ac-94ca6cb78e9e',
+     user: { userId: 'KkQUK8ZMTzSKTMhVZMDLJw' } },
+  context:
+   { Applications: { header: [Object], payload: [Object] },
+     System: { application: [Object], device: [Object], user: [Object] } },
+  request:
+   { type: 'LaunchRequest',
+     requestId: '5a60eb8c-f02d-486f-83d1-30389e9b9727',
+     timestamp: '2018-09-18T06:25:44Z',
+     locale: 'ko-KR',
+     extensionId: 'com.santaclova.moduyori',
+     intent: { intent: '', name: '', slots: null },
+     event: { namespace: '', name: '', payload: null } } }
+TypeError: Cannot read property 'token' of undefined
+    at exports.clovaFulfillment (/home/sbyim/Clova/clova/index.js:153:42)
+    at Layer.handle [as handle_request] (/home/sbyim/Clova/node_modules/express/lib/router/layer.js:95:5)
+    at next (/home/sbyim/Clova/node_modules/express/lib/router/route.js:137:13)
+    at Route.dispatch (/home/sbyim/Clova/node_modules/express/lib/router/route.js:112:3)
+    at Layer.handle [as handle_request] (/home/sbyim/Clova/node_modules/express/lib/router/layer.js:95:5)
+    at /home/sbyim/Clova/node_modules/express/lib/router/index.js:281:22
+    at Function.process_params (/home/sbyim/Clova/node_modules/express/lib/router/index.js:335:12)
+    at next (/home/sbyim/Clova/node_modules/express/lib/router/index.js:275:10)
+    at /home/sbyim/Clova/node_modules/body-parser/lib/read.js:130:5
+    at invokeCallback (/home/sbyim/Clova/node_modules/raw-body/index.js:224:16)
+
+
+TypeError: Cannot read property 'token' of undefined
+    at new ClovaResult (/home/sbyim/Clova/clova/index.js:17:54)
+    at exports.clovaFulfillment (/home/sbyim/Clova/clova/index.js:174:19)
+    at Layer.handle [as handle_request] (/home/sbyim/Clova/node_modules/express/lib/router/layer.js:95:5)
+    at next (/home/sbyim/Clova/node_modules/express/lib/router/route.js:137:13)
+    at Route.dispatch (/home/sbyim/Clova/node_modules/express/lib/router/route.js:112:3)
+    at Layer.handle [as handle_request] (/home/sbyim/Clova/node_modules/express/lib/router/layer.js:95:5)
+    at /home/sbyim/Clova/node_modules/express/lib/router/index.js:281:22
+    at Function.process_params (/home/sbyim/Clova/node_modules/express/lib/router/index.js:335:12)
+    at next (/home/sbyim/Clova/node_modules/express/lib/router/index.js:275:10)
+    at /home/sbyim/Clova/node_modules/body-parser/lib/read.js:130:5
+New Dialogue
+Current Dialogue--> a87e78db-15c2-4f15-b6ac-94ca6cb78e9e, NaN
+Active --> 1
+LaunchRequest -->
+
+Response out -->
+{ version: '0.1.0',
+  sessionAttributes:
+   { formerIntent: 'NaN',
+     recommendation: undefined,
+     recipe: undefined,
+     step: undefined },
+  response:
+   { card: {},
+     directives: [ [Object] ],
+     shouldEndSession: true,
+     outputSpeech: { type: 'SpeechList', values: [Object] } } }
+-------------------------------------------------------------------------------
+
+
+--------------------- 2018-09-18 06:25:52 (1537251952735) ---------------------
+Request in -->
+
+{ version: '1.0',
+  session:
+   { new: true,
+     sessionAttributes: {},
+     sessionId: '3b2474aa-118c-4319-a52e-c6a41b0111cc',
+     user: { userId: 'KkQUK8ZMTzSKTMhVZMDLJw' } },
+  context:
+   { AudioPlayer:
+      { offsetInMilliseconds: -49,
+        playerActivity: 'PLAYING',
+        repeatMode: 'NONE',
+        stream: [Object],
+        token: 'a87e78db-15c2-4f15-b6ac-94ca6cb78e9e',
+        totalInMilliseconds: 27744 },
+     System: { application: [Object], device: [Object], user: [Object] } },
+  request:
+   { type: 'EventRequest',
+     requestId: 'd0683c7f-0f33-4e65-9374-7b8f5fea0a62',
+     timestamp: '2018-09-18T06:25:52Z',
+     locale: 'ko-KR',
+     extensionId: 'com.santaclova.moduyori',
+     intent: { intent: '', name: '', slots: null },
+     event:
+      { namespace: 'AudioPlayer',
+        name: 'PlayStarted',
+        payload: [Object] } } }
+
+
+New Dialogue
+Current Dialogue--> 3b2474aa-118c-4319-a52e-c6a41b0111cc, a87e78db-15c2-4f15-b6ac-94ca6cb78e9e
+Active --> 2
+Event --> PlayStarted
+
+Response out -->
+{ version: '0.1.0',
+  sessionAttributes:
+   { formerIntent: 'NaN',
+     recommendation: undefined,
+     recipe: undefined,
+     step: undefined },
+  response: { card: {}, directives: [], shouldEndSession: true } }
+-------------------------------------------------------------------------------
+
+
+--------------------- 2018-09-18 06:25:54 (1537251954649) ---------------------
+Request in -->
+
+{ version: '1.0',
+  session:
+   { new: true,
+     sessionAttributes: {},
+     sessionId: '6ac96df4-c986-4973-9b3a-308745869f2e',
+     user: { userId: 'KkQUK8ZMTzSKTMhVZMDLJw' } },
+  context:
+   { AudioPlayer:
+      { offsetInMilliseconds: 1751,
+        playerActivity: 'PLAYING',
+        repeatMode: 'NONE',
+        stream: [Object],
+        token: 'a87e78db-15c2-4f15-b6ac-94ca6cb78e9e',
+        totalInMilliseconds: 27744 },
+     System: { application: [Object], device: [Object], user: [Object] } },
+  request:
+   { type: 'EventRequest',
+     requestId: 'a4574677-4331-46d7-993f-5c7a58e651bd',
+     timestamp: '2018-09-18T06:25:54Z',
+     locale: 'ko-KR',
+     extensionId: 'com.santaclova.moduyori',
+     intent: { intent: '', name: '', slots: null },
+     event:
+      { namespace: 'AudioPlayer',
+        name: 'PlayPaused',
+        payload: [Object] } } }
+
+
+Current Dialogue--> 6ac96df4-c986-4973-9b3a-308745869f2e, a87e78db-15c2-4f15-b6ac-94ca6cb78e9e
+Active --> 2
+Event --> PlayPaused
+
+Response out -->
+{ version: '0.1.0',
+  sessionAttributes:
+   { formerIntent: 'NaN',
+     recommendation: undefined,
+     recipe: undefined,
+     step: undefined },
+  response: { card: {}, directives: [], shouldEndSession: true } }
+-------------------------------------------------------------------------------
+
+
+--------------------- 2018-09-18 06:25:57 (1537251957307) ---------------------
+Request in -->
+
+{ version: '1.0',
+  session:
+   { new: true,
+     sessionAttributes: {},
+     sessionId: 'e586d213-e6a6-49c0-8016-f7a87e858c2c',
+     user: { userId: 'KkQUK8ZMTzSKTMhVZMDLJw' } },
+  context:
+   { AudioPlayer:
+      { offsetInMilliseconds: 1769,
+        playerActivity: 'PAUSED',
+        repeatMode: 'NONE',
+        stream: [Object],
+        totalInMilliseconds: 27744 },
+     System: { application: [Object], device: [Object], user: [Object] } },
+  request:
+   { type: 'IntentRequest',
+     requestId: 'd173f9c1-20eb-4385-bcaa-1b45230904ce',
+     timestamp: '2018-09-18T06:25:57Z',
+     locale: 'ko-KR',
+     extensionId: 'com.santaclova.moduyori',
+     intent:
+      { intent: 'Clova.NextIntent',
+        name: 'Clova.NextIntent',
+        slots: {} },
+     event: { namespace: '', name: '', payload: null } } }
+
+
+New Dialogue
+Current Dialogue--> e586d213-e6a6-49c0-8016-f7a87e858c2c, undefined
+Active --> 3
+Intent --> Clova.NextIntent
+
+Response out -->
+{ version: '0.1.0',
+  sessionAttributes:
+   { formerIntent: 'NaN',
+     recommendation: undefined,
+     recipe: undefined,
+     step: undefined },
+  response:
+   { card: {},
+     directives: [ [Object] ],
+     shouldEndSession: false,
+     outputSpeech: { type: 'SpeechList', values: [Object] } } }
+-------------------------------------------------------------------------------
+
+
+--------------------- 2018-09-18 06:25:57 (1537251957948) ---------------------
+Request in -->
+
+{ version: '1.0',
+  session:
+   { new: false,
+     sessionAttributes: { formerIntent: 'NaN' },
+     sessionId: 'e586d213-e6a6-49c0-8016-f7a87e858c2c',
+     user: { userId: 'KkQUK8ZMTzSKTMhVZMDLJw' } },
+  context:
+   { AudioPlayer:
+      { offsetInMilliseconds: 1769,
+        playerActivity: 'STOPPED',
+        repeatMode: 'NONE',
+        stream: [Object],
+        token: 'a87e78db-15c2-4f15-b6ac-94ca6cb78e9e',
+        totalInMilliseconds: 27744 },
+     System: { application: [Object], device: [Object], user: [Object] } },
+  request:
+   { type: 'EventRequest',
+     requestId: '178f12dc-f5e0-4b9a-8748-96805eb94b6f',
+     timestamp: '2018-09-18T06:25:57Z',
+     locale: 'ko-KR',
+     extensionId: 'com.santaclova.moduyori',
+     intent: { intent: '', name: '', slots: null },
+     event:
+      { namespace: 'AudioPlayer',
+        name: 'PlayStopped',
+        payload: [Object] } } }
+
+
+Current Dialogue--> e586d213-e6a6-49c0-8016-f7a87e858c2c, undefined
+Active --> 3
+Event --> PlayStopped
+
+Response out -->
+{ version: '0.1.0',
+  sessionAttributes:
+   { formerIntent: 'NaN',
+     recommendation: undefined,
+     recipe: undefined,
+     step: undefined },
+  response: { card: {}, directives: [], shouldEndSession: true } }
+-------------------------------------------------------------------------------
+
+
+--------------------- 2018-09-18 06:26:03 (1537251963319) ---------------------
+Request in -->
+
+{ version: '1.0',
+  session:
+   { new: false,
+     sessionAttributes: { formerIntent: 'NaN' },
+     sessionId: 'e586d213-e6a6-49c0-8016-f7a87e858c2c',
+     user: { userId: 'KkQUK8ZMTzSKTMhVZMDLJw' } },
+  context:
+   { AudioPlayer:
+      { offsetInMilliseconds: 0,
+        playerActivity: 'PLAYING',
+        repeatMode: 'NONE',
+        stream: [Object],
+        token: 'e586d213-e6a6-49c0-8016-f7a87e858c2c' },
+     System: { application: [Object], device: [Object], user: [Object] } },
+  request:
+   { type: 'EventRequest',
+     requestId: 'd816b26c-3c66-49eb-b242-8d1073a054e1',
+     timestamp: '2018-09-18T06:26:03Z',
+     locale: 'ko-KR',
+     extensionId: 'com.santaclova.moduyori',
+     intent: { intent: '', name: '', slots: null },
+     event:
+      { namespace: 'AudioPlayer',
+        name: 'PlayPaused',
+        payload: [Object] } } }
+
+
+Current Dialogue--> e586d213-e6a6-49c0-8016-f7a87e858c2c, undefined
+Active --> 3
+Event --> PlayPaused
+
+Response out -->
+{ version: '0.1.0',
+  sessionAttributes:
+   { formerIntent: 'NaN',
+     recommendation: undefined,
+     recipe: undefined,
+     step: undefined },
+  response: { card: {}, directives: [], shouldEndSession: true } }
+-------------------------------------------------------------------------------
+
+
+--------------------- 2018-09-18 06:26:03 (1537251963769) ---------------------
+Request in -->
+
+{ version: '1.0',
+  session:
+   { new: false,
+     sessionAttributes: { formerIntent: 'NaN' },
+     sessionId: 'e586d213-e6a6-49c0-8016-f7a87e858c2c',
+     user: { userId: 'KkQUK8ZMTzSKTMhVZMDLJw' } },
+  context:
+   { AudioPlayer:
+      { offsetInMilliseconds: 0,
+        playerActivity: 'PAUSED',
+        repeatMode: 'NONE',
+        stream: [Object],
+        token: 'e586d213-e6a6-49c0-8016-f7a87e858c2c' },
+     System: { application: [Object], device: [Object], user: [Object] } },
+  request:
+   { type: 'EventRequest',
+     requestId: '86d1eebd-2a42-481a-b45c-d477d206fe4f',
+     timestamp: '2018-09-18T06:26:03Z',
+     locale: 'ko-KR',
+     extensionId: 'com.santaclova.moduyori',
+     intent: { intent: '', name: '', slots: null },
+     event:
+      { namespace: 'AudioPlayer',
+        name: 'PlayResumed',
+        payload: [Object] } } }
+
+
+Current Dialogue--> e586d213-e6a6-49c0-8016-f7a87e858c2c, undefined
+Active --> 3
+Event --> PlayResumed
+
+Response out -->
+{ version: '0.1.0',
+  sessionAttributes:
+   { formerIntent: 'NaN',
+     recommendation: undefined,
+     recipe: undefined,
+     step: undefined },
+  response: { card: {}, directives: [], shouldEndSession: true } }
+-------------------------------------------------------------------------------
+
+
+--------------------- 2018-09-18 06:26:06 (1537251966321) ---------------------
+Request in -->
+
+{ version: '1.0',
+  session:
+   { new: false,
+     sessionAttributes: { formerIntent: 'NaN' },
+     sessionId: 'e586d213-e6a6-49c0-8016-f7a87e858c2c',
+     user: { userId: 'KkQUK8ZMTzSKTMhVZMDLJw' } },
+  context:
+   { AudioPlayer:
+      { offsetInMilliseconds: 0,
+        playerActivity: 'PLAYING',
+        repeatMode: 'NONE',
+        stream: [Object],
+        token: 'e586d213-e6a6-49c0-8016-f7a87e858c2c',
+        totalInMilliseconds: 27744 },
+     System: { application: [Object], device: [Object], user: [Object] } },
+  request:
+   { type: 'EventRequest',
+     requestId: '503f3615-3fb1-4605-9f10-e2aec2776e0d',
+     timestamp: '2018-09-18T06:26:06Z',
+     locale: 'ko-KR',
+     extensionId: 'com.santaclova.moduyori',
+     intent: { intent: '', name: '', slots: null },
+     event:
+      { namespace: 'AudioPlayer',
+        name: 'PlayStarted',
+        payload: [Object] } } }
+
+
+Current Dialogue--> e586d213-e6a6-49c0-8016-f7a87e858c2c, undefined
+Active --> 3
+Event --> PlayStarted
+
+Response out -->
+{ version: '0.1.0',
+  sessionAttributes:
+   { formerIntent: 'NaN',
+     recommendation: undefined,
+     recipe: undefined,
+     step: undefined },
+  response: { card: {}, directives: [], shouldEndSession: true } }
+-------------------------------------------------------------------------------
+
+
+--------------------- 2018-09-18 06:26:08 (1537251968925) ---------------------
+Request in -->
+
+{ version: '1.0',
+  session:
+   { new: false,
+     sessionAttributes: { formerIntent: 'NaN' },
+     sessionId: 'e586d213-e6a6-49c0-8016-f7a87e858c2c',
+     user: { userId: 'KkQUK8ZMTzSKTMhVZMDLJw' } },
+  context:
+   { AudioPlayer:
+      { offsetInMilliseconds: 2454,
+        playerActivity: 'PLAYING',
+        repeatMode: 'NONE',
+        stream: [Object],
+        token: 'e586d213-e6a6-49c0-8016-f7a87e858c2c',
+        totalInMilliseconds: 27744 },
+     System: { application: [Object], device: [Object], user: [Object] } },
+  request:
+   { type: 'EventRequest',
+     requestId: '6e149a6e-8804-4c11-8ca7-43abcc1be19b',
+     timestamp: '2018-09-18T06:26:08Z',
+     locale: 'ko-KR',
+     extensionId: 'com.santaclova.moduyori',
+     intent: { intent: '', name: '', slots: null },
+     event:
+      { namespace: 'AudioPlayer',
+        name: 'PlayPaused',
+        payload: [Object] } } }
+
+
+Current Dialogue--> e586d213-e6a6-49c0-8016-f7a87e858c2c, undefined
+Active --> 3
+Event --> PlayPaused
+
+Response out -->
+{ version: '0.1.0',
+  sessionAttributes:
+   { formerIntent: 'NaN',
+     recommendation: undefined,
+     recipe: undefined,
+     step: undefined },
+  response: { card: {}, directives: [], shouldEndSession: true } }
+-------------------------------------------------------------------------------
+
+
+--------------------- 2018-09-18 06:26:14 (1537251974202) ---------------------
+Request in -->
+
+{ version: '1.0',
+  session:
+   { new: false,
+     sessionAttributes: { formerIntent: 'NaN' },
+     sessionId: 'e586d213-e6a6-49c0-8016-f7a87e858c2c',
+     user: { userId: 'KkQUK8ZMTzSKTMhVZMDLJw' } },
+  context:
+   { AudioPlayer:
+      { offsetInMilliseconds: 2482,
+        playerActivity: 'STOPPED',
+        repeatMode: 'NONE',
+        stream: [Object],
+        token: 'e586d213-e6a6-49c0-8016-f7a87e858c2c',
+        totalInMilliseconds: 27744 },
+     System: { application: [Object], device: [Object], user: [Object] } },
+  request:
+   { type: 'EventRequest',
+     requestId: '4fcdba4e-5e1a-42e4-a01f-b1aa9ae8b808',
+     timestamp: '2018-09-18T06:26:14Z',
+     locale: 'ko-KR',
+     extensionId: 'com.santaclova.moduyori',
+     intent: { intent: '', name: '', slots: null },
+     event:
+      { namespace: 'AudioPlayer',
+        name: 'PlayStopped',
+        payload: [Object] } } }
+
+
+Current Dialogue--> e586d213-e6a6-49c0-8016-f7a87e858c2c, undefined
+Active --> 3
+Event --> PlayStopped
+
+Response out -->
+{ version: '0.1.0',
+  sessionAttributes:
+   { formerIntent: 'NaN',
+     recommendation: undefined,
+     recipe: undefined,
+     step: undefined },
+  response: { card: {}, directives: [], shouldEndSession: true } }
+-------------------------------------------------------------------------------
+
+

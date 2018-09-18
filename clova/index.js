@@ -107,6 +107,7 @@ class ClovaResult {
 		};
 		
 		this.result.response.directives.push(directive);
+		this.setDialogueEnd();
 	}
 	
 	//'Pause', 'Resume', 'Stop'
@@ -138,7 +139,6 @@ exports.clovaFulfillment = function (req, res) {
 	console.log('Request in -->\n');
 	console.log(params);
 	let clovaReq = 'NaN';
-	let isIntent = true;
 	
 	try {
 		clovaReq = params.request.type;
@@ -180,7 +180,7 @@ exports.clovaFulfillment = function (req, res) {
 	console.log('Active --> ' + fullfilmentsResult.length)
 
 	//----------------- intent 및 event 처리 -------------------//
-	clovaResponse = detectIntent(clovaReq, clovaResponse);
+	clovaResponse = detectRequest(clovaReq, clovaResponse);
 	//----처리 완료----//
 
 	console.log('\nResponse out -->');
@@ -190,33 +190,28 @@ exports.clovaFulfillment = function (req, res) {
 	console.log('<-- Directives -->');
 	console.log(result.response.directives);
 	console.log(result.response.directives[0].payload);
-	*/
-	if(isIntent)
-		res.json(clovaResponse.result);
+	//*/
+	res.json(clovaResponse.result);
 	console.log('-------------------------------------------------------------------------------\n');
 };
 
 //-------------------- Intent 처리 --------------------//
-
-function detectIntent(requestType, clovaResponse) {
+//HTTP Request와 Clova에서 Request를 혼동하지 않도록 주의
+//추후 request나 intent를 클래스화 하여 관리
+function detectRequest(requestType, clovaResponse) {
 	switch(requestType) {
 		case 'LaunchRequest':
 			clovaResponse.addSimpleSpeech('아무 말이나 해보세요.');
-			clovaResponse.addPlayDirective(waitingMusic);
 			console.log('LaunchRequest --> ');
-			clovaResponse.setDialogueEnd();
 			break;
 		case 'EventRequest':
 			let clovaEvent = clovaResponse.clovaEvent;
 			console.log('Event --> ' + clovaEvent);
-			isIntent = false;
 			clovaResponse.setDialogueEnd();
 			break;
 		case 'IntentRequest':
-			let intent = clovaResponse.intent;
-			clovaResponse.addSimpleSpeech(intent + ' 인텐트. 샘플 노래를 재생합니다.');
-			clovaResponse.addPlayDirective(waitingMusic);
-			console.log('Intent --> ' + intent);
+			clovaResponse = detectIntent(clovaResponse);		//인텐트 인식
+			console.log('Intent --> ' + clovaResponse.intent);
 			break;
 		default:
 			clovaResponse.addSimpleSpeech('에러가 발생했습니다.');
@@ -226,6 +221,21 @@ function detectIntent(requestType, clovaResponse) {
 	
 	return clovaResponse;
 }
+
+function detectIntent(clovaResponse) {
+	let processOK = false;		//제대로 된 시나리오에 따라 Intent가 처리됬는지 여부
+	
+	switch(clovaResponse.intent) {
+		case 'Clova.NoIntent':
+			clovaResponse.addPlayDirective(waitingMusic);
+			break;
+		default:
+			clovaResponse.addSimpleSpeech('현재 Intent ' + clovaResponse.intent);
+			break;
+	}
+	return clovaResponse;
+}
+
 //-------------------- 사용 되지 않는 코드 --------------------//
 
 function initializeJSON(attributes) {
