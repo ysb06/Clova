@@ -1,19 +1,19 @@
---------------------- 2018-09-18 06:25:44 (1537251944475) ---------------------
+--------------------- 2018-09-18 06:37:44 (1537252664416) ---------------------
 Request in -->
 
 { version: '1.0',
   session:
    { new: true,
      sessionAttributes: {},
-     sessionId: 'a87e78db-15c2-4f15-b6ac-94ca6cb78e9e',
+     sessionId: 'eab74998-b2b0-4737-9bb0-7f9c3eb69d4a',
      user: { userId: 'KkQUK8ZMTzSKTMhVZMDLJw' } },
   context:
    { Applications: { header: [Object], payload: [Object] },
      System: { application: [Object], device: [Object], user: [Object] } },
   request:
    { type: 'LaunchRequest',
-     requestId: '5a60eb8c-f02d-486f-83d1-30389e9b9727',
-     timestamp: '2018-09-18T06:25:44Z',
+     requestId: 'db10b16f-0e46-4307-955a-eddda086e493',
+     timestamp: '2018-09-18T06:37:44Z',
      locale: 'ko-KR',
      extensionId: 'com.santaclova.moduyori',
      intent: { intent: '', name: '', slots: null },
@@ -43,7 +43,7 @@ TypeError: Cannot read property 'token' of undefined
     at next (/home/sbyim/Clova/node_modules/express/lib/router/index.js:275:10)
     at /home/sbyim/Clova/node_modules/body-parser/lib/read.js:130:5
 New Dialogue
-Current Dialogue--> a87e78db-15c2-4f15-b6ac-94ca6cb78e9e, NaN
+Current Dialogue--> eab74998-b2b0-4737-9bb0-7f9c3eb69d4a, NaN
 Active --> 1
 LaunchRequest -->
 
@@ -56,34 +56,94 @@ Response out -->
      step: undefined },
   response:
    { card: {},
-     directives: [ [Object] ],
-     shouldEndSession: true,
+     directives: [],
+     shouldEndSession: false,
      outputSpeech: { type: 'SpeechList', values: [Object] } } }
 -------------------------------------------------------------------------------
 
 
---------------------- 2018-09-18 06:25:52 (1537251952735) ---------------------
+--------------------- 2018-09-18 06:37:50 (1537252670365) ---------------------
+Request in -->
+
+{ version: '1.0',
+  session:
+   { new: false,
+     sessionAttributes: { formerIntent: 'NaN' },
+     sessionId: 'eab74998-b2b0-4737-9bb0-7f9c3eb69d4a',
+     user: { userId: 'KkQUK8ZMTzSKTMhVZMDLJw' } },
+  context:
+   { Applications: { header: [Object], payload: [Object] },
+     System: { application: [Object], device: [Object], user: [Object] } },
+  request:
+   { type: 'IntentRequest',
+     requestId: 'cd0e36ba-5a37-4cdf-a6a4-ed6fca5b99de',
+     timestamp: '2018-09-18T06:37:50Z',
+     locale: 'ko-KR',
+     extensionId: 'com.santaclova.moduyori',
+     intent: { intent: 'Clova.NoIntent', name: 'Clova.NoIntent', slots: {} },
+     event: { namespace: '', name: '', payload: null } } }
+TypeError: Cannot read property 'token' of undefined
+    at exports.clovaFulfillment (/home/sbyim/Clova/clova/index.js:153:42)
+    at Layer.handle [as handle_request] (/home/sbyim/Clova/node_modules/express/lib/router/layer.js:95:5)
+    at next (/home/sbyim/Clova/node_modules/express/lib/router/route.js:137:13)
+    at Route.dispatch (/home/sbyim/Clova/node_modules/express/lib/router/route.js:112:3)
+    at Layer.handle [as handle_request] (/home/sbyim/Clova/node_modules/express/lib/router/layer.js:95:5)
+    at /home/sbyim/Clova/node_modules/express/lib/router/index.js:281:22
+    at Function.process_params (/home/sbyim/Clova/node_modules/express/lib/router/index.js:335:12)
+    at next (/home/sbyim/Clova/node_modules/express/lib/router/index.js:275:10)
+    at /home/sbyim/Clova/node_modules/body-parser/lib/read.js:130:5
+    at invokeCallback (/home/sbyim/Clova/node_modules/raw-body/index.js:224:16)
+
+
+TypeError: Cannot read property 'token' of undefined
+    at new ClovaResult (/home/sbyim/Clova/clova/index.js:17:54)
+    at exports.clovaFulfillment (/home/sbyim/Clova/clova/index.js:174:19)
+    at Layer.handle [as handle_request] (/home/sbyim/Clova/node_modules/express/lib/router/layer.js:95:5)
+    at next (/home/sbyim/Clova/node_modules/express/lib/router/route.js:137:13)
+    at Route.dispatch (/home/sbyim/Clova/node_modules/express/lib/router/route.js:112:3)
+    at Layer.handle [as handle_request] (/home/sbyim/Clova/node_modules/express/lib/router/layer.js:95:5)
+    at /home/sbyim/Clova/node_modules/express/lib/router/index.js:281:22
+    at Function.process_params (/home/sbyim/Clova/node_modules/express/lib/router/index.js:335:12)
+    at next (/home/sbyim/Clova/node_modules/express/lib/router/index.js:275:10)
+    at /home/sbyim/Clova/node_modules/body-parser/lib/read.js:130:5
+New Dialogue
+Current Dialogue--> eab74998-b2b0-4737-9bb0-7f9c3eb69d4a, NaN
+Active --> 2
+Intent --> Clova.NoIntent
+
+Response out -->
+{ version: '0.1.0',
+  sessionAttributes:
+   { formerIntent: 'NaN',
+     recommendation: undefined,
+     recipe: undefined,
+     step: undefined },
+  response: { card: {}, directives: [ [Object] ], shouldEndSession: true } }
+-------------------------------------------------------------------------------
+
+
+--------------------- 2018-09-18 06:37:54 (1537252674431) ---------------------
 Request in -->
 
 { version: '1.0',
   session:
    { new: true,
      sessionAttributes: {},
-     sessionId: '3b2474aa-118c-4319-a52e-c6a41b0111cc',
+     sessionId: '43a1a652-4bc6-4cf7-9aba-d1149b12a742',
      user: { userId: 'KkQUK8ZMTzSKTMhVZMDLJw' } },
   context:
    { AudioPlayer:
-      { offsetInMilliseconds: -49,
+      { offsetInMilliseconds: 0,
         playerActivity: 'PLAYING',
         repeatMode: 'NONE',
         stream: [Object],
-        token: 'a87e78db-15c2-4f15-b6ac-94ca6cb78e9e',
+        token: 'eab74998-b2b0-4737-9bb0-7f9c3eb69d4a',
         totalInMilliseconds: 27744 },
      System: { application: [Object], device: [Object], user: [Object] } },
   request:
    { type: 'EventRequest',
-     requestId: 'd0683c7f-0f33-4e65-9374-7b8f5fea0a62',
-     timestamp: '2018-09-18T06:25:52Z',
+     requestId: '2e197962-7016-4558-a3fb-6325371f4d7e',
+     timestamp: '2018-09-18T06:37:54Z',
      locale: 'ko-KR',
      extensionId: 'com.santaclova.moduyori',
      intent: { intent: '', name: '', slots: null },
@@ -94,8 +154,8 @@ Request in -->
 
 
 New Dialogue
-Current Dialogue--> 3b2474aa-118c-4319-a52e-c6a41b0111cc, a87e78db-15c2-4f15-b6ac-94ca6cb78e9e
-Active --> 2
+Current Dialogue--> 43a1a652-4bc6-4cf7-9aba-d1149b12a742, eab74998-b2b0-4737-9bb0-7f9c3eb69d4a
+Active --> 3
 Event --> PlayStarted
 
 Response out -->
@@ -109,73 +169,27 @@ Response out -->
 -------------------------------------------------------------------------------
 
 
---------------------- 2018-09-18 06:25:54 (1537251954649) ---------------------
+--------------------- 2018-09-18 06:37:59 (1537252679835) ---------------------
 Request in -->
 
 { version: '1.0',
   session:
    { new: true,
      sessionAttributes: {},
-     sessionId: '6ac96df4-c986-4973-9b3a-308745869f2e',
+     sessionId: 'f2445fb1-e08d-4839-8358-53eedb4ec251',
      user: { userId: 'KkQUK8ZMTzSKTMhVZMDLJw' } },
   context:
    { AudioPlayer:
-      { offsetInMilliseconds: 1751,
+      { offsetInMilliseconds: 5251,
         playerActivity: 'PLAYING',
-        repeatMode: 'NONE',
-        stream: [Object],
-        token: 'a87e78db-15c2-4f15-b6ac-94ca6cb78e9e',
-        totalInMilliseconds: 27744 },
-     System: { application: [Object], device: [Object], user: [Object] } },
-  request:
-   { type: 'EventRequest',
-     requestId: 'a4574677-4331-46d7-993f-5c7a58e651bd',
-     timestamp: '2018-09-18T06:25:54Z',
-     locale: 'ko-KR',
-     extensionId: 'com.santaclova.moduyori',
-     intent: { intent: '', name: '', slots: null },
-     event:
-      { namespace: 'AudioPlayer',
-        name: 'PlayPaused',
-        payload: [Object] } } }
-
-
-Current Dialogue--> 6ac96df4-c986-4973-9b3a-308745869f2e, a87e78db-15c2-4f15-b6ac-94ca6cb78e9e
-Active --> 2
-Event --> PlayPaused
-
-Response out -->
-{ version: '0.1.0',
-  sessionAttributes:
-   { formerIntent: 'NaN',
-     recommendation: undefined,
-     recipe: undefined,
-     step: undefined },
-  response: { card: {}, directives: [], shouldEndSession: true } }
--------------------------------------------------------------------------------
-
-
---------------------- 2018-09-18 06:25:57 (1537251957307) ---------------------
-Request in -->
-
-{ version: '1.0',
-  session:
-   { new: true,
-     sessionAttributes: {},
-     sessionId: 'e586d213-e6a6-49c0-8016-f7a87e858c2c',
-     user: { userId: 'KkQUK8ZMTzSKTMhVZMDLJw' } },
-  context:
-   { AudioPlayer:
-      { offsetInMilliseconds: 1769,
-        playerActivity: 'PAUSED',
         repeatMode: 'NONE',
         stream: [Object],
         totalInMilliseconds: 27744 },
      System: { application: [Object], device: [Object], user: [Object] } },
   request:
    { type: 'IntentRequest',
-     requestId: 'd173f9c1-20eb-4385-bcaa-1b45230904ce',
-     timestamp: '2018-09-18T06:25:57Z',
+     requestId: '6599e628-d7df-4258-a68c-166374209b14',
+     timestamp: '2018-09-18T06:37:59Z',
      locale: 'ko-KR',
      extensionId: 'com.santaclova.moduyori',
      intent:
@@ -186,8 +200,8 @@ Request in -->
 
 
 New Dialogue
-Current Dialogue--> e586d213-e6a6-49c0-8016-f7a87e858c2c, undefined
-Active --> 3
+Current Dialogue--> f2445fb1-e08d-4839-8358-53eedb4ec251, undefined
+Active --> 4
 Intent --> Clova.NextIntent
 
 Response out -->
@@ -199,79 +213,34 @@ Response out -->
      step: undefined },
   response:
    { card: {},
-     directives: [ [Object] ],
+     directives: [],
      shouldEndSession: false,
      outputSpeech: { type: 'SpeechList', values: [Object] } } }
 -------------------------------------------------------------------------------
 
 
---------------------- 2018-09-18 06:25:57 (1537251957948) ---------------------
+--------------------- 2018-09-18 06:38:04 (1537252684098) ---------------------
 Request in -->
 
 { version: '1.0',
   session:
    { new: false,
      sessionAttributes: { formerIntent: 'NaN' },
-     sessionId: 'e586d213-e6a6-49c0-8016-f7a87e858c2c',
+     sessionId: 'f2445fb1-e08d-4839-8358-53eedb4ec251',
      user: { userId: 'KkQUK8ZMTzSKTMhVZMDLJw' } },
   context:
    { AudioPlayer:
-      { offsetInMilliseconds: 1769,
-        playerActivity: 'STOPPED',
+      { offsetInMilliseconds: 9520,
+        playerActivity: 'PLAYING',
         repeatMode: 'NONE',
         stream: [Object],
-        token: 'a87e78db-15c2-4f15-b6ac-94ca6cb78e9e',
+        token: 'eab74998-b2b0-4737-9bb0-7f9c3eb69d4a',
         totalInMilliseconds: 27744 },
      System: { application: [Object], device: [Object], user: [Object] } },
   request:
    { type: 'EventRequest',
-     requestId: '178f12dc-f5e0-4b9a-8748-96805eb94b6f',
-     timestamp: '2018-09-18T06:25:57Z',
-     locale: 'ko-KR',
-     extensionId: 'com.santaclova.moduyori',
-     intent: { intent: '', name: '', slots: null },
-     event:
-      { namespace: 'AudioPlayer',
-        name: 'PlayStopped',
-        payload: [Object] } } }
-
-
-Current Dialogue--> e586d213-e6a6-49c0-8016-f7a87e858c2c, undefined
-Active --> 3
-Event --> PlayStopped
-
-Response out -->
-{ version: '0.1.0',
-  sessionAttributes:
-   { formerIntent: 'NaN',
-     recommendation: undefined,
-     recipe: undefined,
-     step: undefined },
-  response: { card: {}, directives: [], shouldEndSession: true } }
--------------------------------------------------------------------------------
-
-
---------------------- 2018-09-18 06:26:03 (1537251963319) ---------------------
-Request in -->
-
-{ version: '1.0',
-  session:
-   { new: false,
-     sessionAttributes: { formerIntent: 'NaN' },
-     sessionId: 'e586d213-e6a6-49c0-8016-f7a87e858c2c',
-     user: { userId: 'KkQUK8ZMTzSKTMhVZMDLJw' } },
-  context:
-   { AudioPlayer:
-      { offsetInMilliseconds: 0,
-        playerActivity: 'PLAYING',
-        repeatMode: 'NONE',
-        stream: [Object],
-        token: 'e586d213-e6a6-49c0-8016-f7a87e858c2c' },
-     System: { application: [Object], device: [Object], user: [Object] } },
-  request:
-   { type: 'EventRequest',
-     requestId: 'd816b26c-3c66-49eb-b242-8d1073a054e1',
-     timestamp: '2018-09-18T06:26:03Z',
+     requestId: '3d4deaa5-501f-4d01-9ee2-5c281ed2735e',
+     timestamp: '2018-09-18T06:38:04Z',
      locale: 'ko-KR',
      extensionId: 'com.santaclova.moduyori',
      intent: { intent: '', name: '', slots: null },
@@ -281,8 +250,8 @@ Request in -->
         payload: [Object] } } }
 
 
-Current Dialogue--> e586d213-e6a6-49c0-8016-f7a87e858c2c, undefined
-Active --> 3
+Current Dialogue--> f2445fb1-e08d-4839-8358-53eedb4ec251, undefined
+Active --> 4
 Event --> PlayPaused
 
 Response out -->
@@ -296,27 +265,28 @@ Response out -->
 -------------------------------------------------------------------------------
 
 
---------------------- 2018-09-18 06:26:03 (1537251963769) ---------------------
+--------------------- 2018-09-18 06:38:04 (1537252684538) ---------------------
 Request in -->
 
 { version: '1.0',
   session:
    { new: false,
      sessionAttributes: { formerIntent: 'NaN' },
-     sessionId: 'e586d213-e6a6-49c0-8016-f7a87e858c2c',
+     sessionId: 'f2445fb1-e08d-4839-8358-53eedb4ec251',
      user: { userId: 'KkQUK8ZMTzSKTMhVZMDLJw' } },
   context:
    { AudioPlayer:
-      { offsetInMilliseconds: 0,
+      { offsetInMilliseconds: 9536,
         playerActivity: 'PAUSED',
         repeatMode: 'NONE',
         stream: [Object],
-        token: 'e586d213-e6a6-49c0-8016-f7a87e858c2c' },
+        token: 'eab74998-b2b0-4737-9bb0-7f9c3eb69d4a',
+        totalInMilliseconds: 27744 },
      System: { application: [Object], device: [Object], user: [Object] } },
   request:
    { type: 'EventRequest',
-     requestId: '86d1eebd-2a42-481a-b45c-d477d206fe4f',
-     timestamp: '2018-09-18T06:26:03Z',
+     requestId: 'aa463c6f-d307-4f27-81a1-22dedb66fc8c',
+     timestamp: '2018-09-18T06:38:04Z',
      locale: 'ko-KR',
      extensionId: 'com.santaclova.moduyori',
      intent: { intent: '', name: '', slots: null },
@@ -326,8 +296,8 @@ Request in -->
         payload: [Object] } } }
 
 
-Current Dialogue--> e586d213-e6a6-49c0-8016-f7a87e858c2c, undefined
-Active --> 3
+Current Dialogue--> f2445fb1-e08d-4839-8358-53eedb4ec251, undefined
+Active --> 4
 Event --> PlayResumed
 
 Response out -->
@@ -341,74 +311,28 @@ Response out -->
 -------------------------------------------------------------------------------
 
 
---------------------- 2018-09-18 06:26:06 (1537251966321) ---------------------
+--------------------- 2018-09-18 06:38:06 (1537252686274) ---------------------
 Request in -->
 
 { version: '1.0',
   session:
    { new: false,
      sessionAttributes: { formerIntent: 'NaN' },
-     sessionId: 'e586d213-e6a6-49c0-8016-f7a87e858c2c',
+     sessionId: 'f2445fb1-e08d-4839-8358-53eedb4ec251',
      user: { userId: 'KkQUK8ZMTzSKTMhVZMDLJw' } },
   context:
    { AudioPlayer:
-      { offsetInMilliseconds: 0,
+      { offsetInMilliseconds: 11311,
         playerActivity: 'PLAYING',
         repeatMode: 'NONE',
         stream: [Object],
-        token: 'e586d213-e6a6-49c0-8016-f7a87e858c2c',
+        token: 'eab74998-b2b0-4737-9bb0-7f9c3eb69d4a',
         totalInMilliseconds: 27744 },
      System: { application: [Object], device: [Object], user: [Object] } },
   request:
    { type: 'EventRequest',
-     requestId: '503f3615-3fb1-4605-9f10-e2aec2776e0d',
-     timestamp: '2018-09-18T06:26:06Z',
-     locale: 'ko-KR',
-     extensionId: 'com.santaclova.moduyori',
-     intent: { intent: '', name: '', slots: null },
-     event:
-      { namespace: 'AudioPlayer',
-        name: 'PlayStarted',
-        payload: [Object] } } }
-
-
-Current Dialogue--> e586d213-e6a6-49c0-8016-f7a87e858c2c, undefined
-Active --> 3
-Event --> PlayStarted
-
-Response out -->
-{ version: '0.1.0',
-  sessionAttributes:
-   { formerIntent: 'NaN',
-     recommendation: undefined,
-     recipe: undefined,
-     step: undefined },
-  response: { card: {}, directives: [], shouldEndSession: true } }
--------------------------------------------------------------------------------
-
-
---------------------- 2018-09-18 06:26:08 (1537251968925) ---------------------
-Request in -->
-
-{ version: '1.0',
-  session:
-   { new: false,
-     sessionAttributes: { formerIntent: 'NaN' },
-     sessionId: 'e586d213-e6a6-49c0-8016-f7a87e858c2c',
-     user: { userId: 'KkQUK8ZMTzSKTMhVZMDLJw' } },
-  context:
-   { AudioPlayer:
-      { offsetInMilliseconds: 2454,
-        playerActivity: 'PLAYING',
-        repeatMode: 'NONE',
-        stream: [Object],
-        token: 'e586d213-e6a6-49c0-8016-f7a87e858c2c',
-        totalInMilliseconds: 27744 },
-     System: { application: [Object], device: [Object], user: [Object] } },
-  request:
-   { type: 'EventRequest',
-     requestId: '6e149a6e-8804-4c11-8ca7-43abcc1be19b',
-     timestamp: '2018-09-18T06:26:08Z',
+     requestId: '316f9dbb-9102-43d9-87a3-7a227e734b49',
+     timestamp: '2018-09-18T06:38:06Z',
      locale: 'ko-KR',
      extensionId: 'com.santaclova.moduyori',
      intent: { intent: '', name: '', slots: null },
@@ -418,8 +342,8 @@ Request in -->
         payload: [Object] } } }
 
 
-Current Dialogue--> e586d213-e6a6-49c0-8016-f7a87e858c2c, undefined
-Active --> 3
+Current Dialogue--> f2445fb1-e08d-4839-8358-53eedb4ec251, undefined
+Active --> 4
 Event --> PlayPaused
 
 Response out -->
@@ -433,28 +357,28 @@ Response out -->
 -------------------------------------------------------------------------------
 
 
---------------------- 2018-09-18 06:26:14 (1537251974202) ---------------------
+--------------------- 2018-09-18 06:38:30 (1537252710051) ---------------------
 Request in -->
 
 { version: '1.0',
   session:
    { new: false,
      sessionAttributes: { formerIntent: 'NaN' },
-     sessionId: 'e586d213-e6a6-49c0-8016-f7a87e858c2c',
+     sessionId: 'f2445fb1-e08d-4839-8358-53eedb4ec251',
      user: { userId: 'KkQUK8ZMTzSKTMhVZMDLJw' } },
   context:
    { AudioPlayer:
-      { offsetInMilliseconds: 2482,
+      { offsetInMilliseconds: 11345,
         playerActivity: 'STOPPED',
         repeatMode: 'NONE',
         stream: [Object],
-        token: 'e586d213-e6a6-49c0-8016-f7a87e858c2c',
+        token: 'eab74998-b2b0-4737-9bb0-7f9c3eb69d4a',
         totalInMilliseconds: 27744 },
      System: { application: [Object], device: [Object], user: [Object] } },
   request:
    { type: 'EventRequest',
-     requestId: '4fcdba4e-5e1a-42e4-a01f-b1aa9ae8b808',
-     timestamp: '2018-09-18T06:26:14Z',
+     requestId: 'a3ae5a89-99db-4f46-a09e-fea0eb3da1ac',
+     timestamp: '2018-09-18T06:38:30Z',
      locale: 'ko-KR',
      extensionId: 'com.santaclova.moduyori',
      intent: { intent: '', name: '', slots: null },
@@ -464,8 +388,8 @@ Request in -->
         payload: [Object] } } }
 
 
-Current Dialogue--> e586d213-e6a6-49c0-8016-f7a87e858c2c, undefined
-Active --> 3
+Current Dialogue--> f2445fb1-e08d-4839-8358-53eedb4ec251, undefined
+Active --> 4
 Event --> PlayStopped
 
 Response out -->
@@ -476,6 +400,135 @@ Response out -->
      recipe: undefined,
      step: undefined },
   response: { card: {}, directives: [], shouldEndSession: true } }
+-------------------------------------------------------------------------------
+
+
+--------------------- 2018-09-18 06:38:39 (1537252719574) ---------------------
+Request in -->
+
+{ version: '1.0',
+  session:
+   { new: true,
+     sessionAttributes: {},
+     sessionId: '1938d764-29d0-424d-8dd9-1aa8f3790685',
+     user: { userId: 'KkQUK8ZMTzSKTMhVZMDLJw' } },
+  context:
+   { Applications: { header: [Object], payload: [Object] },
+     System: { application: [Object], device: [Object], user: [Object] } },
+  request:
+   { type: 'LaunchRequest',
+     requestId: 'd50332ed-7621-4c30-a57f-dcec0fc0c92b',
+     timestamp: '2018-09-18T06:38:39Z',
+     locale: 'ko-KR',
+     extensionId: 'com.santaclova.moduyori',
+     intent: { intent: '', name: '', slots: null },
+     event: { namespace: '', name: '', payload: null } } }
+TypeError: Cannot read property 'token' of undefined
+    at exports.clovaFulfillment (/home/sbyim/Clova/clova/index.js:153:42)
+    at Layer.handle [as handle_request] (/home/sbyim/Clova/node_modules/express/lib/router/layer.js:95:5)
+    at next (/home/sbyim/Clova/node_modules/express/lib/router/route.js:137:13)
+    at Route.dispatch (/home/sbyim/Clova/node_modules/express/lib/router/route.js:112:3)
+    at Layer.handle [as handle_request] (/home/sbyim/Clova/node_modules/express/lib/router/layer.js:95:5)
+    at /home/sbyim/Clova/node_modules/express/lib/router/index.js:281:22
+    at Function.process_params (/home/sbyim/Clova/node_modules/express/lib/router/index.js:335:12)
+    at next (/home/sbyim/Clova/node_modules/express/lib/router/index.js:275:10)
+    at /home/sbyim/Clova/node_modules/body-parser/lib/read.js:130:5
+    at invokeCallback (/home/sbyim/Clova/node_modules/raw-body/index.js:224:16)
+
+
+TypeError: Cannot read property 'token' of undefined
+    at new ClovaResult (/home/sbyim/Clova/clova/index.js:17:54)
+    at exports.clovaFulfillment (/home/sbyim/Clova/clova/index.js:174:19)
+    at Layer.handle [as handle_request] (/home/sbyim/Clova/node_modules/express/lib/router/layer.js:95:5)
+    at next (/home/sbyim/Clova/node_modules/express/lib/router/route.js:137:13)
+    at Route.dispatch (/home/sbyim/Clova/node_modules/express/lib/router/route.js:112:3)
+    at Layer.handle [as handle_request] (/home/sbyim/Clova/node_modules/express/lib/router/layer.js:95:5)
+    at /home/sbyim/Clova/node_modules/express/lib/router/index.js:281:22
+    at Function.process_params (/home/sbyim/Clova/node_modules/express/lib/router/index.js:335:12)
+    at next (/home/sbyim/Clova/node_modules/express/lib/router/index.js:275:10)
+    at /home/sbyim/Clova/node_modules/body-parser/lib/read.js:130:5
+New Dialogue
+Current Dialogue--> 1938d764-29d0-424d-8dd9-1aa8f3790685, NaN
+Active --> 5
+LaunchRequest -->
+
+Response out -->
+{ version: '0.1.0',
+  sessionAttributes:
+   { formerIntent: 'NaN',
+     recommendation: undefined,
+     recipe: undefined,
+     step: undefined },
+  response:
+   { card: {},
+     directives: [],
+     shouldEndSession: false,
+     outputSpeech: { type: 'SpeechList', values: [Object] } } }
+-------------------------------------------------------------------------------
+
+
+--------------------- 2018-09-18 06:38:44 (1537252724742) ---------------------
+Request in -->
+
+{ version: '1.0',
+  session:
+   { new: false,
+     sessionAttributes: { formerIntent: 'NaN' },
+     sessionId: '1938d764-29d0-424d-8dd9-1aa8f3790685',
+     user: { userId: 'KkQUK8ZMTzSKTMhVZMDLJw' } },
+  context:
+   { Applications: { header: [Object], payload: [Object] },
+     System: { application: [Object], device: [Object], user: [Object] } },
+  request:
+   { type: 'SessionEndedRequest',
+     requestId: 'f5a29641-a9e3-4ae7-827f-c91e7fc5c8d6',
+     timestamp: '2018-09-18T06:38:44Z',
+     locale: 'ko-KR',
+     reason: 'USER_INITIATED',
+     extensionId: 'com.santaclova.moduyori',
+     intent: { intent: '', name: '', slots: null },
+     event: { namespace: '', name: '', payload: null } } }
+TypeError: Cannot read property 'token' of undefined
+    at exports.clovaFulfillment (/home/sbyim/Clova/clova/index.js:153:42)
+    at Layer.handle [as handle_request] (/home/sbyim/Clova/node_modules/express/lib/router/layer.js:95:5)
+    at next (/home/sbyim/Clova/node_modules/express/lib/router/route.js:137:13)
+    at Route.dispatch (/home/sbyim/Clova/node_modules/express/lib/router/route.js:112:3)
+    at Layer.handle [as handle_request] (/home/sbyim/Clova/node_modules/express/lib/router/layer.js:95:5)
+    at /home/sbyim/Clova/node_modules/express/lib/router/index.js:281:22
+    at Function.process_params (/home/sbyim/Clova/node_modules/express/lib/router/index.js:335:12)
+    at next (/home/sbyim/Clova/node_modules/express/lib/router/index.js:275:10)
+    at /home/sbyim/Clova/node_modules/body-parser/lib/read.js:130:5
+    at invokeCallback (/home/sbyim/Clova/node_modules/raw-body/index.js:224:16)
+
+
+TypeError: Cannot read property 'token' of undefined
+    at new ClovaResult (/home/sbyim/Clova/clova/index.js:17:54)
+    at exports.clovaFulfillment (/home/sbyim/Clova/clova/index.js:174:19)
+    at Layer.handle [as handle_request] (/home/sbyim/Clova/node_modules/express/lib/router/layer.js:95:5)
+    at next (/home/sbyim/Clova/node_modules/express/lib/router/route.js:137:13)
+    at Route.dispatch (/home/sbyim/Clova/node_modules/express/lib/router/route.js:112:3)
+    at Layer.handle [as handle_request] (/home/sbyim/Clova/node_modules/express/lib/router/layer.js:95:5)
+    at /home/sbyim/Clova/node_modules/express/lib/router/index.js:281:22
+    at Function.process_params (/home/sbyim/Clova/node_modules/express/lib/router/index.js:335:12)
+    at next (/home/sbyim/Clova/node_modules/express/lib/router/index.js:275:10)
+    at /home/sbyim/Clova/node_modules/body-parser/lib/read.js:130:5
+New Dialogue
+Current Dialogue--> 1938d764-29d0-424d-8dd9-1aa8f3790685, NaN
+Active --> 6
+Other Request --> SessionEndedRequest
+
+Response out -->
+{ version: '0.1.0',
+  sessionAttributes:
+   { formerIntent: 'NaN',
+     recommendation: undefined,
+     recipe: undefined,
+     step: undefined },
+  response:
+   { card: {},
+     directives: [],
+     shouldEndSession: false,
+     outputSpeech: { type: 'SpeechList', values: [Object] } } }
 -------------------------------------------------------------------------------
 
 
