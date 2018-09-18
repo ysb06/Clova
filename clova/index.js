@@ -245,7 +245,7 @@ function detectRequest(requestType, clovaResponse) {
 	switch(requestType) {
 		case 'LaunchRequest':
 			clovaResponse.setRecommendation();
-			clovaResponse.addSimpleSpeech('안녕하세요. 모두의 요리사 요리왕입니다.\n\r만들고 싶은 음식을 말씀해 주세요.\n\r잘 모르시겠다면 요리왕이 ' + recommendedTypeList[attributes.recommendation] + ' 요리를 추천해 드릴께요');
+			clovaResponse.addSimpleSpeech('안녕하세요. 모두의 요리사 요리왕입니다.\n\r만들고 싶은 음식을 말씀해 주세요.\n\r잘 모르시겠다면 요리왕이 ' + recommendedTypeList[clovaResponse.recommendation] + ' 요리를 추천해 드릴께요');
 			console.log('LaunchRequest --> ');
 			break;
 		case 'EventRequest':
