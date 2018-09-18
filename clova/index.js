@@ -235,7 +235,7 @@ exports.clovaFulfillment = function (req, res) {
 	console.log(result.response.directives[0].payload);
 	//*/
 	res.json(clovaResponse.result);
-	console.log('-------------------------------------------------------------------------------\n' + clovaResponse.formerIntent);
+	console.log('-------------------------------------------------------------------------------\n');
 };
 
 //-------------------- Intent 처리 --------------------//
@@ -269,8 +269,7 @@ function detectRequest(requestType, clovaResponse) {
 
 function detectIntent(clovaResponse) {
 	let processOK = false;		//제대로 된 시나리오에 따라 Intent가 처리됬는지 여부
-	
-	let recipe = '';
+
 	switch(clovaResponse.intent) {
 		case 'Clova.GuideIntent':
 			clovaResponse.setRecommendation();
@@ -278,13 +277,13 @@ function detectIntent(clovaResponse) {
 			//현 Intent를 포함하여 이전 Intent 조건이 맞을 때만 기능 수행
 			break;
 		case 'AskRecipe':
-			recipe = clovaResponse.params.request.intent.slots.food.value;
+			let recipe = clovaResponse.params.request.intent.slots.food.value;
 			clovaResponse.recipe = recipe;
 			clovaResponse.addSimpleSpeech(recommendedTypeList[clovaResponse.recommendation] + ' ' + recipe + '를 만들어 볼까요?');
 			break;
 		case 'AskRecipeRecommendation':
 			//추천은 무조건 미역국으로
-			recipe = '미역국';
+			let recipe = '미역국';
 			clovaResponse.recipe = recipe;
 			clovaResponse.addSimpleSpeech(recipe + '를 만들어 볼까요?');
 			break;
