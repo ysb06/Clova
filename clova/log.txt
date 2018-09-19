@@ -1,18 +1,29 @@
+[root@node-asia-01 Clova]# git pull
+remote: Counting objects: 4, done.
+remote: Compressing objects: 100% (1/1), done.
+remote: Total 4 (delta 3), reused 4 (delta 3), pack-reused 0
+Unpacking objects: 100% (4/4), done.
+From git://github.com/ysb06/Clova
+   5457563..29e2222  master     -> origin/master
+Updating 5457563..29e2222
+Fast-forward
+ clova/index_1.js | 8 ++------
+ 1 file changed, 2 insertions(+), 6 deletions(-)
 [root@node-asia-01 Clova]# clear
 [root@node-asia-01 Clova]# node app.js
 Server is running on 80 port
 
---------------------- 2018-09-19 16:03:23 (1537373003345) ---------------------
+--------------------- 2018-09-19 16:37:17 (1537375037639) ---------------------
 [1] New dialogue session
 ClovaSession {
-  sessionID: 'cbdd7a2b-60e7-425f-93e1-7717dd4cf4d0',
+  sessionID: '77501aeb-b191-4d6d-895d-4ef3a84ce363',
   isEndDialogue: false,
   raw:
    { version: '1.0',
      session:
       { new: true,
         sessionAttributes: {},
-        sessionId: 'cbdd7a2b-60e7-425f-93e1-7717dd4cf4d0',
+        sessionId: '77501aeb-b191-4d6d-895d-4ef3a84ce363',
         user: { userId: 'KkQUK8ZMTzSKTMhVZMDLJw' } },
      context:
       { Applications:
@@ -30,13 +41,13 @@ ClovaSession {
            user: { userId: 'KkQUK8ZMTzSKTMhVZMDLJw' } } },
      request:
       { type: 'LaunchRequest',
-        requestId: '930b4fc0-a3c1-4774-9c27-662b38ec506a',
-        timestamp: '2018-09-19T16:03:23Z',
+        requestId: 'f64df6be-5de7-4b70-93ce-58be31e99c4d',
+        timestamp: '2018-09-19T16:37:17Z',
         locale: 'ko-KR',
         extensionId: 'com.santaclova.moduyori',
         intent: { intent: '', name: '', slots: null },
         event: { namespace: '', name: '', payload: null } } },
-  time: 1537373003348,
+  time: 1537375037642,
   formerIntent: undefined,
   recommendation: 0,
   targetRecipe: 'No Value',
@@ -50,8 +61,8 @@ ClovaSession {
 
 { version: '0.1.0',
   sessionAttributes:
-   { formerIntent: undefined,
-     recommendation: 2,
+   { formerIntent: 'LaunchRequest',
+     recommendation: 3,
      recipe: 'No Value',
      step: 0 },
   response:
@@ -64,17 +75,21 @@ ClovaSession {
 -------------------------------------------------------------------------------
 
 
---------------------- 2018-09-19 16:03:28 (1537373008401) ---------------------
+--------------------- 2018-09-19 16:37:23 (1537375043601) ---------------------
 [1] In dialogue session
 ClovaSession {
-  sessionID: 'cbdd7a2b-60e7-425f-93e1-7717dd4cf4d0',
+  sessionID: '77501aeb-b191-4d6d-895d-4ef3a84ce363',
   isEndDialogue: false,
   raw:
    { version: '1.0',
      session:
       { new: false,
-        sessionAttributes: { recipe: 'No Value', recommendation: 2, step: 0 },
-        sessionId: 'cbdd7a2b-60e7-425f-93e1-7717dd4cf4d0',
+        sessionAttributes:
+         { formerIntent: 'LaunchRequest',
+           recipe: 'No Value',
+           recommendation: 3,
+           step: 0 },
+        sessionId: '77501aeb-b191-4d6d-895d-4ef3a84ce363',
         user: { userId: 'KkQUK8ZMTzSKTMhVZMDLJw' } },
      context:
       { Applications:
@@ -92,83 +107,18 @@ ClovaSession {
            user: { userId: 'KkQUK8ZMTzSKTMhVZMDLJw' } } },
      request:
       { type: 'IntentRequest',
-        requestId: 'a666f28d-9c73-49d1-88da-15d40ae35a04',
-        timestamp: '2018-09-19T16:03:28Z',
-        locale: 'ko-KR',
-        extensionId: 'com.santaclova.moduyori',
-        intent:
-         { intent: 'Clova.GuideIntent',
-           name: 'Clova.GuideIntent',
-           slots: {} },
-        event: { namespace: '', name: '', payload: null } } },
-  time: 1537373008402,
-  formerIntent: undefined,
-  recommendation: 2,
-  targetRecipe: 'No Value',
-  currentStep: 0,
-  currentIntent: 'Clova.GuideIntent',
-  simpleSpeech: undefined,
-  playDirective: undefined,
-  controlDirective: undefined }
-
-
-
-{ version: '0.1.0',
-  sessionAttributes:
-   { formerIntent: undefined,
-     recommendation: 2,
-     recipe: 'No Value',
-     step: 0 },
-  response:
-   { card: {},
-     directives: [],
-     shouldEndSession: false,
-     outputSpeech:
-      { type: 'SpeechList',
-        values: [ { type: 'PlainText', lang: 'ko', value: '먹고 싶은 음식은?' } ] } } }
--------------------------------------------------------------------------------
-
-
---------------------- 2018-09-19 16:03:33 (1537373013220) ---------------------
-[1] In dialogue session
-ClovaSession {
-  sessionID: 'cbdd7a2b-60e7-425f-93e1-7717dd4cf4d0',
-  isEndDialogue: false,
-  raw:
-   { version: '1.0',
-     session:
-      { new: false,
-        sessionAttributes: { recipe: 'No Value', recommendation: 2, step: 0 },
-        sessionId: 'cbdd7a2b-60e7-425f-93e1-7717dd4cf4d0',
-        user: { userId: 'KkQUK8ZMTzSKTMhVZMDLJw' } },
-     context:
-      { Applications:
-         { header: { namespace: 'CDK', name: 'Applications' },
-           payload: { applications: [ { available: true, enabled: true, id: 'com.naver.nozzle' } ] } },
-        System:
-         { application: { applicationId: 'com.santaclova.moduyori' },
-           device:
-            { deviceId: 'a3234173-57cd-3b8f-8a18-dbbe6226f0d1',
-              display:
-               { size: 'l100',
-                 dpi: 96,
-                 orientation: 'landscape',
-                 contentLayer: { width: 640, height: 360 } } },
-           user: { userId: 'KkQUK8ZMTzSKTMhVZMDLJw' } } },
-     request:
-      { type: 'IntentRequest',
-        requestId: 'a89fabfc-018a-4d0b-a4bd-a30c634ef432',
-        timestamp: '2018-09-19T16:03:33Z',
+        requestId: '98d22949-f054-4a4a-a62b-c8a4802c22ec',
+        timestamp: '2018-09-19T16:37:23Z',
         locale: 'ko-KR',
         extensionId: 'com.santaclova.moduyori',
         intent:
          { intent: 'AskRecipe',
            name: 'AskRecipe',
-           slots: { food: { name: 'food', value: '미역국' } } },
+           slots: { food: { name: 'food', value: '참치김치찌개' } } },
         event: { namespace: '', name: '', payload: null } } },
-  time: 1537373013221,
-  formerIntent: undefined,
-  recommendation: 2,
+  time: 1537375043602,
+  formerIntent: 'LaunchRequest',
+  recommendation: 3,
   targetRecipe: 'No Value',
   currentStep: 0,
   currentIntent: 'AskRecipe',
@@ -180,9 +130,9 @@ ClovaSession {
 
 { version: '0.1.0',
   sessionAttributes:
-   { formerIntent: undefined,
-     recommendation: 2,
-     recipe: '미역국',
+   { formerIntent: 'AskRecipe',
+     recommendation: 3,
+     recipe: '참치김치찌개',
      step: 0 },
   response:
    { card: {},
@@ -193,21 +143,25 @@ ClovaSession {
         values:
          [ { type: 'PlainText',
              lang: 'ko',
-             value: '남녀노소 즐길 수 있는 미역국를 만들어 볼까요?' } ] } } }
+             value: '기가 막히고 혀가 놀라는 참치김치찌개를 만들어 볼까요?' } ] } } }
 -------------------------------------------------------------------------------
 
 
---------------------- 2018-09-19 16:03:39 (1537373019902) ---------------------
+--------------------- 2018-09-19 16:37:31 (1537375051085) ---------------------
 [1] In dialogue session
 ClovaSession {
-  sessionID: 'cbdd7a2b-60e7-425f-93e1-7717dd4cf4d0',
+  sessionID: '77501aeb-b191-4d6d-895d-4ef3a84ce363',
   isEndDialogue: false,
   raw:
    { version: '1.0',
      session:
       { new: false,
-        sessionAttributes: { recipe: '미역국', recommendation: 2, step: 0 },
-        sessionId: 'cbdd7a2b-60e7-425f-93e1-7717dd4cf4d0',
+        sessionAttributes:
+         { formerIntent: 'AskRecipe',
+           recipe: '참치김치찌개',
+           recommendation: 3,
+           step: 0 },
+        sessionId: '77501aeb-b191-4d6d-895d-4ef3a84ce363',
         user: { userId: 'KkQUK8ZMTzSKTMhVZMDLJw' } },
      context:
       { Applications:
@@ -225,16 +179,16 @@ ClovaSession {
            user: { userId: 'KkQUK8ZMTzSKTMhVZMDLJw' } } },
      request:
       { type: 'IntentRequest',
-        requestId: '7686c585-37ca-46d4-ac74-16db61846168',
-        timestamp: '2018-09-19T16:03:39Z',
+        requestId: 'fe9ca905-0b1d-4cc9-b1c6-92c59701bf00',
+        timestamp: '2018-09-19T16:37:31Z',
         locale: 'ko-KR',
         extensionId: 'com.santaclova.moduyori',
         intent: { intent: 'Clova.YesIntent', name: 'Clova.YesIntent', slots: {} },
         event: { namespace: '', name: '', payload: null } } },
-  time: 1537373019902,
-  formerIntent: undefined,
-  recommendation: 2,
-  targetRecipe: '미역국',
+  time: 1537375051085,
+  formerIntent: 'AskRecipe',
+  recommendation: 3,
+  targetRecipe: '참치김치찌개',
   currentStep: 0,
   currentIntent: 'Clova.YesIntent',
   simpleSpeech: undefined,
@@ -245,9 +199,9 @@ ClovaSession {
 
 { version: '0.1.0',
   sessionAttributes:
-   { formerIntent: undefined,
-     recommendation: 2,
-     recipe: '미역국',
+   { formerIntent: 'Clova.YesIntent',
+     recommendation: 3,
+     recipe: '참치김치찌개',
      step: 0 },
   response:
    { card: {},
@@ -255,21 +209,28 @@ ClovaSession {
      shouldEndSession: false,
      outputSpeech:
       { type: 'SpeechList',
-        values: [ { type: 'PlainText', lang: 'ko', value: '요리왕이 미역국에 대해 알려줍니다.' } ] } } }
+        values:
+         [ { type: 'PlainText',
+             lang: 'ko',
+             value: '요리왕이 참치김치찌개에 대해 알려줍니다.' } ] } } }
 -------------------------------------------------------------------------------
 
 
---------------------- 2018-09-19 16:03:45 (1537373025728) ---------------------
+--------------------- 2018-09-19 16:37:38 (1537375058146) ---------------------
 [1] In dialogue session
 ClovaSession {
-  sessionID: 'cbdd7a2b-60e7-425f-93e1-7717dd4cf4d0',
+  sessionID: '77501aeb-b191-4d6d-895d-4ef3a84ce363',
   isEndDialogue: false,
   raw:
    { version: '1.0',
      session:
       { new: false,
-        sessionAttributes: { recipe: '미역국', recommendation: 2, step: 0 },
-        sessionId: 'cbdd7a2b-60e7-425f-93e1-7717dd4cf4d0',
+        sessionAttributes:
+         { formerIntent: 'Clova.YesIntent',
+           recipe: '참치김치찌개',
+           recommendation: 3,
+           step: 0 },
+        sessionId: '77501aeb-b191-4d6d-895d-4ef3a84ce363',
         user: { userId: 'KkQUK8ZMTzSKTMhVZMDLJw' } },
      context:
       { Applications:
@@ -287,30 +248,30 @@ ClovaSession {
            user: { userId: 'KkQUK8ZMTzSKTMhVZMDLJw' } } },
      request:
       { type: 'IntentRequest',
-        requestId: 'd2c6e67e-df29-40cf-badf-1ce42705f9df',
-        timestamp: '2018-09-19T16:03:45Z',
+        requestId: '7b896fb4-5734-4456-9716-d28ab449297c',
+        timestamp: '2018-09-19T16:37:38Z',
         locale: 'ko-KR',
         extensionId: 'com.santaclova.moduyori',
         intent: { intent: 'NextStep', name: 'NextStep', slots: {} },
         event: { namespace: '', name: '', payload: null } } },
-  time: 1537373025728,
-  formerIntent: undefined,
-  recommendation: 2,
-  targetRecipe: '미역국',
+  time: 1537375058147,
+  formerIntent: 'Clova.YesIntent',
+  recommendation: 3,
+  targetRecipe: '참치김치찌개',
   currentStep: 0,
   currentIntent: 'NextStep',
   simpleSpeech: undefined,
   playDirective: undefined,
   controlDirective: undefined }
-현재 요리: 미역국? true, 1
+현재 요리: 참치김치찌개? false, 1
 
 
 
 { version: '0.1.0',
   sessionAttributes:
-   { formerIntent: undefined,
-     recommendation: 2,
-     recipe: '미역국',
+   { formerIntent: 'NextStep',
+     recommendation: 3,
+     recipe: '참치김치찌개',
      step: 1 },
   response:
    { card: {},
@@ -318,11 +279,11 @@ ClovaSession {
       [ { header: { namespace: 'AudioPlayer', name: 'Play' },
           payload:
            { audioItem:
-              { audioItemId: '3719c0f5-f300-4dea-ab7b-67cc35272c10',
+              { audioItemId: '6655727a-7fa9-4767-9c3c-d5ab8fd6d15d',
                 stream:
                  { beginAtInMilliseconds: 0,
                    playType: 'NONE',
-                   token: 'cbdd7a2b-60e7-425f-93e1-7717dd4cf4d0',
+                   token: '77501aeb-b191-4d6d-895d-4ef3a84ce363',
                    url: 'https://www.sample-videos.com/audio/mp3/crowd-cheering.mp3',
                    urlPlayable: true },
                 titleSubText1: 'Yori',
@@ -336,34 +297,21 @@ ClovaSession {
         values:
          [ { type: 'PlainText',
              lang: 'ko',
-             value: '다음의 재료를 준비해 주세요. 미역(마른것) 5줌(20g), 쇠고기(양지머리) 120g, 물 8컵(1,600ml), 재래간장 1과 1/2큰술(22ml), 마늘(다진 마늘) 1큰술(10g), 소금 작은술(3g), 참기름 작은술(5ml)' } ] } } }
+             value: '다음의 재료를 준비해 주세요. 참치(통조림) 1통, 신 김치 200g, 양파 ½개, 들기름 1작은술, 마늘(다진 마늘) 1큰술, 맛술 1큰술, 고춧가루(고운 고춧가루) 1큰술, 다시마(우린 물) 4컵, 간장(약간), 후춧가루(약간)' } ] } } }
 -------------------------------------------------------------------------------
 
 
---------------------- 2018-09-19 16:04:01 (1537373041439) ---------------------
-TypeError: Cannot read property 'hasOwnProperty' of undefined
-    at getCurrentSession (/home/sbyim/Clova/clova/index_1.js:192:28)
-    at exports.clovaFulfillment (/home/sbyim/Clova/clova/index_1.js:162:26)
-    at Layer.handle [as handle_request] (/home/sbyim/Clova/node_modules/express/lib/router/layer.js:95:5)
-    at next (/home/sbyim/Clova/node_modules/express/lib/router/route.js:137:13)
-    at Route.dispatch (/home/sbyim/Clova/node_modules/express/lib/router/route.js:112:3)
-    at Layer.handle [as handle_request] (/home/sbyim/Clova/node_modules/express/lib/router/layer.js:95:5)
-    at /home/sbyim/Clova/node_modules/express/lib/router/index.js:281:22
-    at Function.process_params (/home/sbyim/Clova/node_modules/express/lib/router/index.js:335:12)
-    at next (/home/sbyim/Clova/node_modules/express/lib/router/index.js:275:10)
-    at jsonParser (/home/sbyim/Clova/node_modules/body-parser/lib/types/json.js:118:7)
-
---------------------- 2018-09-19 16:04:02 (1537373042710) ---------------------
+--------------------- 2018-09-19 16:37:56 (1537375076793) ---------------------
 [1] After audio session
 ClovaSession {
-  sessionID: 'cbdd7a2b-60e7-425f-93e1-7717dd4cf4d0',
+  sessionID: '77501aeb-b191-4d6d-895d-4ef3a84ce363',
   isEndDialogue: true,
   raw:
    { version: '1.0',
      session:
       { new: true,
         sessionAttributes: {},
-        sessionId: '49b923da-2860-424f-99b1-45be9148d756',
+        sessionId: '202e8c3c-a8ac-4a51-89b2-e182c386aa70',
         user: { userId: 'KkQUK8ZMTzSKTMhVZMDLJw' } },
      context:
       { AudioPlayer:
@@ -373,10 +321,10 @@ ClovaSession {
            stream:
             { beginAtInMilliseconds: 0,
               playType: 'NONE',
-              token: 'cbdd7a2b-60e7-425f-93e1-7717dd4cf4d0',
+              token: '77501aeb-b191-4d6d-895d-4ef3a84ce363',
               url: 'https://www.sample-videos.com/audio/mp3/crowd-cheering.mp3',
               urlPlayable: true },
-           token: 'cbdd7a2b-60e7-425f-93e1-7717dd4cf4d0',
+           token: '77501aeb-b191-4d6d-895d-4ef3a84ce363',
            totalInMilliseconds: 27744 },
         System:
          { application: { applicationId: 'com.santaclova.moduyori' },
@@ -390,8 +338,8 @@ ClovaSession {
            user: { userId: 'KkQUK8ZMTzSKTMhVZMDLJw' } } },
      request:
       { type: 'EventRequest',
-        requestId: 'aa8e1180-b45e-4746-b311-06e117a594ce',
-        timestamp: '2018-09-19T16:04:02Z',
+        requestId: 'dee6b67e-d3a3-443f-8465-e7f6dc6b70b1',
+        timestamp: '2018-09-19T16:37:56Z',
         locale: 'ko-KR',
         extensionId: 'com.santaclova.moduyori',
         intent: { intent: '', name: '', slots: null },
@@ -400,11 +348,11 @@ ClovaSession {
            name: 'PlayStarted',
            payload:
             { offsetInMilliseconds: 0,
-              token: 'cbdd7a2b-60e7-425f-93e1-7717dd4cf4d0' } } } },
-  time: 1537373042710,
+              token: '77501aeb-b191-4d6d-895d-4ef3a84ce363' } } } },
+  time: 1537375076793,
   formerIntent: undefined,
-  recommendation: 2,
-  targetRecipe: '미역국',
+  recommendation: 3,
+  targetRecipe: '참치김치찌개',
   currentStep: 1,
   currentIntent: 'PlayStarted',
   simpleSpeech: undefined,
@@ -415,38 +363,38 @@ ClovaSession {
 
 { version: '0.1.0',
   sessionAttributes:
-   { formerIntent: undefined,
-     recommendation: 2,
-     recipe: '미역국',
+   { formerIntent: 'PlayStarted',
+     recommendation: 3,
+     recipe: '참치김치찌개',
      step: 1 },
   response: { card: {}, directives: [], shouldEndSession: true } }
 -------------------------------------------------------------------------------
 
 
---------------------- 2018-09-19 16:04:04 (1537373044120) ---------------------
+--------------------- 2018-09-19 16:37:58 (1537375078865) ---------------------
 [1] After audio session
 ClovaSession {
-  sessionID: 'cbdd7a2b-60e7-425f-93e1-7717dd4cf4d0',
+  sessionID: '77501aeb-b191-4d6d-895d-4ef3a84ce363',
   isEndDialogue: true,
   raw:
    { version: '1.0',
      session:
       { new: true,
         sessionAttributes: {},
-        sessionId: 'f0886626-a704-4e27-b200-9f3e0ecf0212',
+        sessionId: '7e005c41-7956-473b-849f-6559a3cf2607',
         user: { userId: 'KkQUK8ZMTzSKTMhVZMDLJw' } },
      context:
       { AudioPlayer:
-         { offsetInMilliseconds: 1282,
+         { offsetInMilliseconds: 1579,
            playerActivity: 'PLAYING',
            repeatMode: 'NONE',
            stream:
             { beginAtInMilliseconds: 0,
               playType: 'NONE',
-              token: 'cbdd7a2b-60e7-425f-93e1-7717dd4cf4d0',
+              token: '77501aeb-b191-4d6d-895d-4ef3a84ce363',
               url: 'https://www.sample-videos.com/audio/mp3/crowd-cheering.mp3',
               urlPlayable: true },
-           token: 'cbdd7a2b-60e7-425f-93e1-7717dd4cf4d0',
+           token: '77501aeb-b191-4d6d-895d-4ef3a84ce363',
            totalInMilliseconds: 27744 },
         System:
          { application: { applicationId: 'com.santaclova.moduyori' },
@@ -460,8 +408,8 @@ ClovaSession {
            user: { userId: 'KkQUK8ZMTzSKTMhVZMDLJw' } } },
      request:
       { type: 'EventRequest',
-        requestId: '56208e8e-63ef-4fea-95f4-c3260af66faf',
-        timestamp: '2018-09-19T16:04:04Z',
+        requestId: '1ae456c6-4e3c-4731-9214-3ed83d94d9bc',
+        timestamp: '2018-09-19T16:37:58Z',
         locale: 'ko-KR',
         extensionId: 'com.santaclova.moduyori',
         intent: { intent: '', name: '', slots: null },
@@ -469,12 +417,12 @@ ClovaSession {
          { namespace: 'AudioPlayer',
            name: 'PlayPaused',
            payload:
-            { offsetInMilliseconds: 1272,
-              token: 'cbdd7a2b-60e7-425f-93e1-7717dd4cf4d0' } } } },
-  time: 1537373044120,
+            { offsetInMilliseconds: 1570,
+              token: '77501aeb-b191-4d6d-895d-4ef3a84ce363' } } } },
+  time: 1537375078866,
   formerIntent: undefined,
-  recommendation: 2,
-  targetRecipe: '미역국',
+  recommendation: 3,
+  targetRecipe: '참치김치찌개',
   currentStep: 1,
   currentIntent: 'PlayPaused',
   simpleSpeech: undefined,
@@ -485,9 +433,9 @@ ClovaSession {
 
 { version: '0.1.0',
   sessionAttributes:
-   { formerIntent: undefined,
-     recommendation: 2,
-     recipe: '미역국',
+   { formerIntent: 'PlayPaused',
+     recommendation: 3,
+     recipe: '참치김치찌개',
      step: 1 },
   response:
    { card: {},
@@ -499,27 +447,27 @@ ClovaSession {
 -------------------------------------------------------------------------------
 
 
---------------------- 2018-09-19 16:04:08 (1537373048829) ---------------------
+--------------------- 2018-09-19 16:38:03 (1537375083720) ---------------------
 [1] After audio session
 ClovaSession {
-  sessionID: 'cbdd7a2b-60e7-425f-93e1-7717dd4cf4d0',
+  sessionID: '77501aeb-b191-4d6d-895d-4ef3a84ce363',
   isEndDialogue: false,
   raw:
    { version: '1.0',
      session:
       { new: true,
         sessionAttributes: {},
-        sessionId: 'add1c439-a083-44a9-931b-bba2e1cc5200',
+        sessionId: 'f782f42b-ef4a-462d-a65a-f7b5b164a9f7',
         user: { userId: 'KkQUK8ZMTzSKTMhVZMDLJw' } },
      context:
       { AudioPlayer:
-         { offsetInMilliseconds: 1307,
+         { offsetInMilliseconds: 1601,
            playerActivity: 'PAUSED',
            repeatMode: 'NONE',
            stream:
             { beginAtInMilliseconds: 0,
               playType: 'NONE',
-              token: 'cbdd7a2b-60e7-425f-93e1-7717dd4cf4d0',
+              token: '77501aeb-b191-4d6d-895d-4ef3a84ce363',
               url: 'https://www.sample-videos.com/audio/mp3/crowd-cheering.mp3',
               urlPlayable: true },
            totalInMilliseconds: 27744 },
@@ -535,8 +483,8 @@ ClovaSession {
            user: { userId: 'KkQUK8ZMTzSKTMhVZMDLJw' } } },
      request:
       { type: 'IntentRequest',
-        requestId: '11156b5e-fce9-40e5-8bbb-0c29a35d8c6e',
-        timestamp: '2018-09-19T16:04:08Z',
+        requestId: 'ad62e5c3-d76b-4404-ac22-8818873d2f8a',
+        timestamp: '2018-09-19T16:38:03Z',
         locale: 'ko-KR',
         extensionId: 'com.santaclova.moduyori',
         intent:
@@ -544,24 +492,107 @@ ClovaSession {
            name: 'Clova.NextIntent',
            slots: {} },
         event: { namespace: '', name: '', payload: null } } },
-  time: 1537373048829,
+  time: 1537375083720,
   formerIntent: undefined,
-  recommendation: 2,
-  targetRecipe: '미역국',
+  recommendation: 3,
+  targetRecipe: '참치김치찌개',
   currentStep: 1,
   currentIntent: 'Clova.NextIntent',
   simpleSpeech: undefined,
   playDirective: undefined,
   controlDirective: undefined }
-현재 요리: 미역국? true, 2
 
 
 
 { version: '0.1.0',
   sessionAttributes:
-   { formerIntent: undefined,
-     recommendation: 2,
-     recipe: '미역국',
+   { formerIntent: 'Clova.NextIntent',
+     recommendation: 3,
+     recipe: '참치김치찌개',
+     step: 1 },
+  response:
+   { card: {},
+     directives:
+      [ { header:
+           { namespace: 'PlaybackController',
+             name: 'Stop',
+             dialogRequestId: '4e02340a-a148-46bc-8d0f-03f2484ac0d8',
+             messageId: 'be9a0341-aae9-4699-b6b3-cb6bc27455f7' },
+          payload: {} } ],
+     shouldEndSession: false } }
+-------------------------------------------------------------------------------
+
+
+--------------------- 2018-09-19 16:38:03 (1537375083942) ---------------------
+[1] After audio session
+ClovaSession {
+  sessionID: '77501aeb-b191-4d6d-895d-4ef3a84ce363',
+  isEndDialogue: false,
+  raw:
+   { version: '1.0',
+     session:
+      { new: false,
+        sessionAttributes:
+         { formerIntent: 'Clova.NextIntent',
+           recipe: '참치김치찌개',
+           recommendation: 3,
+           step: 1 },
+        sessionId: 'f782f42b-ef4a-462d-a65a-f7b5b164a9f7',
+        user: { userId: 'KkQUK8ZMTzSKTMhVZMDLJw' } },
+     context:
+      { AudioPlayer:
+         { offsetInMilliseconds: 1601,
+           playerActivity: 'STOPPED',
+           repeatMode: 'NONE',
+           stream:
+            { beginAtInMilliseconds: 0,
+              playType: 'NONE',
+              token: '77501aeb-b191-4d6d-895d-4ef3a84ce363',
+              url: 'https://www.sample-videos.com/audio/mp3/crowd-cheering.mp3',
+              urlPlayable: true },
+           token: '77501aeb-b191-4d6d-895d-4ef3a84ce363',
+           totalInMilliseconds: 27744 },
+        System:
+         { application: { applicationId: 'com.santaclova.moduyori' },
+           device:
+            { deviceId: 'a3234173-57cd-3b8f-8a18-dbbe6226f0d1',
+              display:
+               { size: 'l100',
+                 dpi: 96,
+                 orientation: 'landscape',
+                 contentLayer: { width: 640, height: 360 } } },
+           user: { userId: 'KkQUK8ZMTzSKTMhVZMDLJw' } } },
+     request:
+      { type: 'EventRequest',
+        requestId: '64edf203-e5ef-4307-9bbc-b677d70cf001',
+        timestamp: '2018-09-19T16:38:03Z',
+        locale: 'ko-KR',
+        extensionId: 'com.santaclova.moduyori',
+        intent: { intent: '', name: '', slots: null },
+        event:
+         { namespace: 'AudioPlayer',
+           name: 'PlayStopped',
+           payload:
+            { offsetInMilliseconds: 1601,
+              token: '77501aeb-b191-4d6d-895d-4ef3a84ce363' } } } },
+  time: 1537375083942,
+  formerIntent: 'Clova.NextIntent',
+  recommendation: 3,
+  targetRecipe: '참치김치찌개',
+  currentStep: 1,
+  currentIntent: 'PlayStopped',
+  simpleSpeech: undefined,
+  playDirective: undefined,
+  controlDirective: undefined }
+현재 요리: 참치김치찌개? false, 2
+
+
+
+{ version: '0.1.0',
+  sessionAttributes:
+   { formerIntent: 'PlayStopped',
+     recommendation: 3,
+     recipe: '참치김치찌개',
      step: 2 },
   response:
    { card: {},
@@ -569,11 +600,11 @@ ClovaSession {
       [ { header: { namespace: 'AudioPlayer', name: 'Play' },
           payload:
            { audioItem:
-              { audioItemId: '3719c0f5-f300-4dea-ab7b-67cc35272c10',
+              { audioItemId: 'e3a5d2f7-240c-4d2f-b98e-2987669fc13f',
                 stream:
                  { beginAtInMilliseconds: 0,
                    playType: 'NONE',
-                   token: 'cbdd7a2b-60e7-425f-93e1-7717dd4cf4d0',
+                   token: '77501aeb-b191-4d6d-895d-4ef3a84ce363',
                    url: 'https://www.sample-videos.com/audio/mp3/crowd-cheering.mp3',
                    urlPlayable: true },
                 titleSubText1: 'Yori',
@@ -587,517 +618,5 @@ ClovaSession {
         values:
          [ { type: 'PlainText',
              lang: 'ko',
-             value: '마른 미역은 찬물에 담가 10분간 불린다. 찬물에 바락바락 씻어 거품이 나오지 않을 때까지 헹군다.' } ] } } }
--------------------------------------------------------------------------------
-
-
---------------------- 2018-09-19 16:04:09 (1537373049118) ---------------------
-[1] After audio session
-ClovaSession {
-  sessionID: 'cbdd7a2b-60e7-425f-93e1-7717dd4cf4d0',
-  isEndDialogue: true,
-  raw:
-   { version: '1.0',
-     session:
-      { new: true,
-        sessionAttributes: {},
-        sessionId: '384b5995-1880-4347-ac0f-aab6820be91f',
-        user: { userId: 'KkQUK8ZMTzSKTMhVZMDLJw' } },
-     context:
-      { AudioPlayer:
-         { offsetInMilliseconds: 1307,
-           playerActivity: 'STOPPED',
-           repeatMode: 'NONE',
-           stream:
-            { beginAtInMilliseconds: 0,
-              playType: 'NONE',
-              token: 'cbdd7a2b-60e7-425f-93e1-7717dd4cf4d0',
-              url: 'https://www.sample-videos.com/audio/mp3/crowd-cheering.mp3',
-              urlPlayable: true },
-           token: 'cbdd7a2b-60e7-425f-93e1-7717dd4cf4d0',
-           totalInMilliseconds: 27744 },
-        System:
-         { application: { applicationId: 'com.santaclova.moduyori' },
-           device:
-            { deviceId: 'a3234173-57cd-3b8f-8a18-dbbe6226f0d1',
-              display:
-               { size: 'l100',
-                 dpi: 96,
-                 orientation: 'landscape',
-                 contentLayer: { width: 640, height: 360 } } },
-           user: { userId: 'KkQUK8ZMTzSKTMhVZMDLJw' } } },
-     request:
-      { type: 'EventRequest',
-        requestId: 'e0f52560-9f42-44f5-b927-99f4dcd94adc',
-        timestamp: '2018-09-19T16:04:09Z',
-        locale: 'ko-KR',
-        extensionId: 'com.santaclova.moduyori',
-        intent: { intent: '', name: '', slots: null },
-        event:
-         { namespace: 'AudioPlayer',
-           name: 'PlayStopped',
-           payload:
-            { offsetInMilliseconds: 1307,
-              token: 'cbdd7a2b-60e7-425f-93e1-7717dd4cf4d0' } } } },
-  time: 1537373049119,
-  formerIntent: undefined,
-  recommendation: 2,
-  targetRecipe: '미역국',
-  currentStep: 2,
-  currentIntent: 'PlayStopped',
-  simpleSpeech: undefined,
-  playDirective: undefined,
-  controlDirective: undefined }
-
-
-
-{ version: '0.1.0',
-  sessionAttributes:
-   { formerIntent: undefined,
-     recommendation: 2,
-     recipe: '미역국',
-     step: 2 },
-  response:
-   { card: {},
-     directives: [],
-     shouldEndSession: false,
-     outputSpeech:
-      { type: 'SpeechList',
-        values: [ { type: 'PlainText', lang: 'ko', value: '무엇을 하시겠습니까?' } ] } } }
--------------------------------------------------------------------------------
-
-
---------------------- 2018-09-19 16:04:11 (1537373051473) ---------------------
-[1] After audio session
-ClovaSession {
-  sessionID: 'cbdd7a2b-60e7-425f-93e1-7717dd4cf4d0',
-  isEndDialogue: false,
-  raw:
-   { version: '1.0',
-     session:
-      { new: true,
-        sessionAttributes: {},
-        sessionId: 'dc155d04-1f9c-4795-9074-b5ea6f39999c',
-        user: { userId: 'KkQUK8ZMTzSKTMhVZMDLJw' } },
-     context:
-      { AudioPlayer:
-         { offsetInMilliseconds: 0,
-           playerActivity: 'PLAYING',
-           repeatMode: 'NONE',
-           stream:
-            { beginAtInMilliseconds: 0,
-              playType: 'NONE',
-              token: 'cbdd7a2b-60e7-425f-93e1-7717dd4cf4d0',
-              url: 'https://www.sample-videos.com/audio/mp3/crowd-cheering.mp3',
-              urlPlayable: true },
-           token: 'cbdd7a2b-60e7-425f-93e1-7717dd4cf4d0' },
-        System:
-         { application: { applicationId: 'com.santaclova.moduyori' },
-           device:
-            { deviceId: 'a3234173-57cd-3b8f-8a18-dbbe6226f0d1',
-              display:
-               { size: 'l100',
-                 dpi: 96,
-                 orientation: 'landscape',
-                 contentLayer: { width: 640, height: 360 } } },
-           user: { userId: 'KkQUK8ZMTzSKTMhVZMDLJw' } } },
-     request:
-      { type: 'EventRequest',
-        requestId: '7abe53b6-1ec6-497c-a1cd-232d6a5d43cb',
-        timestamp: '2018-09-19T16:04:11Z',
-        locale: 'ko-KR',
-        extensionId: 'com.santaclova.moduyori',
-        intent: { intent: '', name: '', slots: null },
-        event:
-         { namespace: 'AudioPlayer',
-           name: 'PlayPaused',
-           payload:
-            { offsetInMilliseconds: 0,
-              token: 'cbdd7a2b-60e7-425f-93e1-7717dd4cf4d0' } } } },
-  time: 1537373051473,
-  formerIntent: undefined,
-  recommendation: 2,
-  targetRecipe: '미역국',
-  currentStep: 2,
-  currentIntent: 'PlayPaused',
-  simpleSpeech: undefined,
-  playDirective: undefined,
-  controlDirective: undefined }
-
-
-
-{ version: '0.1.0',
-  sessionAttributes:
-   { formerIntent: undefined,
-     recommendation: 2,
-     recipe: '미역국',
-     step: 2 },
-  response:
-   { card: {},
-     directives: [],
-     shouldEndSession: false,
-     outputSpeech:
-      { type: 'SpeechList',
-        values: [ { type: 'PlainText', lang: 'ko', value: '무엇을 하시겠습니까?' } ] } } }
--------------------------------------------------------------------------------
-
-
---------------------- 2018-09-19 16:04:11 (1537373051672) ---------------------
-[1] After audio session
-ClovaSession {
-  sessionID: 'cbdd7a2b-60e7-425f-93e1-7717dd4cf4d0',
-  isEndDialogue: false,
-  raw:
-   { version: '1.0',
-     session:
-      { new: true,
-        sessionAttributes: {},
-        sessionId: 'd65cba97-3ddd-4a0b-8344-0a4e3d0c1f25',
-        user: { userId: 'KkQUK8ZMTzSKTMhVZMDLJw' } },
-     context:
-      { AudioPlayer:
-         { offsetInMilliseconds: 0,
-           playerActivity: 'PAUSED',
-           repeatMode: 'NONE',
-           stream:
-            { beginAtInMilliseconds: 0,
-              playType: 'NONE',
-              token: 'cbdd7a2b-60e7-425f-93e1-7717dd4cf4d0',
-              url: 'https://www.sample-videos.com/audio/mp3/crowd-cheering.mp3',
-              urlPlayable: true },
-           token: 'cbdd7a2b-60e7-425f-93e1-7717dd4cf4d0' },
-        System:
-         { application: { applicationId: 'com.santaclova.moduyori' },
-           device:
-            { deviceId: 'a3234173-57cd-3b8f-8a18-dbbe6226f0d1',
-              display:
-               { size: 'l100',
-                 dpi: 96,
-                 orientation: 'landscape',
-                 contentLayer: { width: 640, height: 360 } } },
-           user: { userId: 'KkQUK8ZMTzSKTMhVZMDLJw' } } },
-     request:
-      { type: 'EventRequest',
-        requestId: '957bedcc-a903-444d-aafc-c0c6b1c8b401',
-        timestamp: '2018-09-19T16:04:11Z',
-        locale: 'ko-KR',
-        extensionId: 'com.santaclova.moduyori',
-        intent: { intent: '', name: '', slots: null },
-        event:
-         { namespace: 'AudioPlayer',
-           name: 'PlayResumed',
-           payload:
-            { offsetInMilliseconds: 0,
-              token: 'cbdd7a2b-60e7-425f-93e1-7717dd4cf4d0' } } } },
-  time: 1537373051672,
-  formerIntent: undefined,
-  recommendation: 2,
-  targetRecipe: '미역국',
-  currentStep: 2,
-  currentIntent: 'PlayResumed',
-  simpleSpeech: undefined,
-  playDirective: undefined,
-  controlDirective: undefined }
-
-
-
-{ version: '0.1.0',
-  sessionAttributes:
-   { formerIntent: undefined,
-     recommendation: 2,
-     recipe: '미역국',
-     step: 2 },
-  response: { card: {}, directives: [], shouldEndSession: false } }
--------------------------------------------------------------------------------
-
-
---------------------- 2018-09-19 16:04:14 (1537373054574) ---------------------
-[1] After audio session
-ClovaSession {
-  sessionID: 'cbdd7a2b-60e7-425f-93e1-7717dd4cf4d0',
-  isEndDialogue: false,
-  raw:
-   { version: '1.0',
-     session:
-      { new: true,
-        sessionAttributes: {},
-        sessionId: '95cbb75f-7e36-419a-94a1-3062f051c5c5',
-        user: { userId: 'KkQUK8ZMTzSKTMhVZMDLJw' } },
-     context:
-      { AudioPlayer:
-         { offsetInMilliseconds: 0,
-           playerActivity: 'PLAYING',
-           repeatMode: 'NONE',
-           stream:
-            { beginAtInMilliseconds: 0,
-              playType: 'NONE',
-              token: 'cbdd7a2b-60e7-425f-93e1-7717dd4cf4d0',
-              url: 'https://www.sample-videos.com/audio/mp3/crowd-cheering.mp3',
-              urlPlayable: true },
-           token: 'cbdd7a2b-60e7-425f-93e1-7717dd4cf4d0',
-           totalInMilliseconds: 27744 },
-        System:
-         { application: { applicationId: 'com.santaclova.moduyori' },
-           device:
-            { deviceId: 'a3234173-57cd-3b8f-8a18-dbbe6226f0d1',
-              display:
-               { size: 'l100',
-                 dpi: 96,
-                 orientation: 'landscape',
-                 contentLayer: { width: 640, height: 360 } } },
-           user: { userId: 'KkQUK8ZMTzSKTMhVZMDLJw' } } },
-     request:
-      { type: 'EventRequest',
-        requestId: '62145372-81f0-4514-b218-5f4d6e2dea87',
-        timestamp: '2018-09-19T16:04:14Z',
-        locale: 'ko-KR',
-        extensionId: 'com.santaclova.moduyori',
-        intent: { intent: '', name: '', slots: null },
-        event:
-         { namespace: 'AudioPlayer',
-           name: 'PlayStarted',
-           payload:
-            { offsetInMilliseconds: 0,
-              token: 'cbdd7a2b-60e7-425f-93e1-7717dd4cf4d0' } } } },
-  time: 1537373054574,
-  formerIntent: undefined,
-  recommendation: 2,
-  targetRecipe: '미역국',
-  currentStep: 2,
-  currentIntent: 'PlayStarted',
-  simpleSpeech: undefined,
-  playDirective: undefined,
-  controlDirective: undefined }
-
-
-
-{ version: '0.1.0',
-  sessionAttributes:
-   { formerIntent: undefined,
-     recommendation: 2,
-     recipe: '미역국',
-     step: 2 },
-  response: { card: {}, directives: [], shouldEndSession: false } }
--------------------------------------------------------------------------------
-
-
---------------------- 2018-09-19 16:04:14 (1537373054901) ---------------------
-[1] After audio session
-ClovaSession {
-  sessionID: 'cbdd7a2b-60e7-425f-93e1-7717dd4cf4d0',
-  isEndDialogue: false,
-  raw:
-   { version: '1.0',
-     session:
-      { new: true,
-        sessionAttributes: {},
-        sessionId: 'e9369593-bdac-41bc-a480-4f777c5ee22a',
-        user: { userId: 'KkQUK8ZMTzSKTMhVZMDLJw' } },
-     context:
-      { AudioPlayer:
-         { offsetInMilliseconds: 193,
-           playerActivity: 'PLAYING',
-           repeatMode: 'NONE',
-           stream:
-            { beginAtInMilliseconds: 0,
-              playType: 'NONE',
-              token: 'cbdd7a2b-60e7-425f-93e1-7717dd4cf4d0',
-              url: 'https://www.sample-videos.com/audio/mp3/crowd-cheering.mp3',
-              urlPlayable: true },
-           token: 'cbdd7a2b-60e7-425f-93e1-7717dd4cf4d0',
-           totalInMilliseconds: 27744 },
-        System:
-         { application: { applicationId: 'com.santaclova.moduyori' },
-           device:
-            { deviceId: 'a3234173-57cd-3b8f-8a18-dbbe6226f0d1',
-              display:
-               { size: 'l100',
-                 dpi: 96,
-                 orientation: 'landscape',
-                 contentLayer: { width: 640, height: 360 } } },
-           user: { userId: 'KkQUK8ZMTzSKTMhVZMDLJw' } } },
-     request:
-      { type: 'EventRequest',
-        requestId: '4cb728c6-0bdc-4d97-9f9b-cd2e66a3a93c',
-        timestamp: '2018-09-19T16:04:14Z',
-        locale: 'ko-KR',
-        extensionId: 'com.santaclova.moduyori',
-        intent: { intent: '', name: '', slots: null },
-        event:
-         { namespace: 'AudioPlayer',
-           name: 'PlayPaused',
-           payload:
-            { offsetInMilliseconds: 183,
-              token: 'cbdd7a2b-60e7-425f-93e1-7717dd4cf4d0' } } } },
-  time: 1537373054902,
-  formerIntent: undefined,
-  recommendation: 2,
-  targetRecipe: '미역국',
-  currentStep: 2,
-  currentIntent: 'PlayPaused',
-  simpleSpeech: undefined,
-  playDirective: undefined,
-  controlDirective: undefined }
-
-
-
-{ version: '0.1.0',
-  sessionAttributes:
-   { formerIntent: undefined,
-     recommendation: 2,
-     recipe: '미역국',
-     step: 2 },
-  response:
-   { card: {},
-     directives: [],
-     shouldEndSession: false,
-     outputSpeech:
-      { type: 'SpeechList',
-        values: [ { type: 'PlainText', lang: 'ko', value: '무엇을 하시겠습니까?' } ] } } }
--------------------------------------------------------------------------------
-
-
---------------------- 2018-09-19 16:04:15 (1537373055045) ---------------------
-[1] After audio session
-ClovaSession {
-  sessionID: 'cbdd7a2b-60e7-425f-93e1-7717dd4cf4d0',
-  isEndDialogue: false,
-  raw:
-   { version: '1.0',
-     session:
-      { new: true,
-        sessionAttributes: {},
-        sessionId: '81173086-c0c5-4342-b815-08b1e28fd435',
-        user: { userId: 'KkQUK8ZMTzSKTMhVZMDLJw' } },
-     context:
-      { AudioPlayer:
-         { offsetInMilliseconds: 198,
-           playerActivity: 'PAUSED',
-           repeatMode: 'NONE',
-           stream:
-            { beginAtInMilliseconds: 0,
-              playType: 'NONE',
-              token: 'cbdd7a2b-60e7-425f-93e1-7717dd4cf4d0',
-              url: 'https://www.sample-videos.com/audio/mp3/crowd-cheering.mp3',
-              urlPlayable: true },
-           token: 'cbdd7a2b-60e7-425f-93e1-7717dd4cf4d0',
-           totalInMilliseconds: 27744 },
-        System:
-         { application: { applicationId: 'com.santaclova.moduyori' },
-           device:
-            { deviceId: 'a3234173-57cd-3b8f-8a18-dbbe6226f0d1',
-              display:
-               { size: 'l100',
-                 dpi: 96,
-                 orientation: 'landscape',
-                 contentLayer: { width: 640, height: 360 } } },
-           user: { userId: 'KkQUK8ZMTzSKTMhVZMDLJw' } } },
-     request:
-      { type: 'EventRequest',
-        requestId: 'd0b310b8-b459-44df-8b97-a84046db4e89',
-        timestamp: '2018-09-19T16:04:15Z',
-        locale: 'ko-KR',
-        extensionId: 'com.santaclova.moduyori',
-        intent: { intent: '', name: '', slots: null },
-        event:
-         { namespace: 'AudioPlayer',
-           name: 'PlayResumed',
-           payload:
-            { offsetInMilliseconds: 198,
-              token: 'cbdd7a2b-60e7-425f-93e1-7717dd4cf4d0' } } } },
-  time: 1537373055045,
-  formerIntent: undefined,
-  recommendation: 2,
-  targetRecipe: '미역국',
-  currentStep: 2,
-  currentIntent: 'PlayResumed',
-  simpleSpeech: undefined,
-  playDirective: undefined,
-  controlDirective: undefined }
-
-
-
-{ version: '0.1.0',
-  sessionAttributes:
-   { formerIntent: undefined,
-     recommendation: 2,
-     recipe: '미역국',
-     step: 2 },
-  response: { card: {}, directives: [], shouldEndSession: false } }
--------------------------------------------------------------------------------
-
-
---------------------- 2018-09-19 16:04:16 (1537373056214) ---------------------
-[1] After audio session
-ClovaSession {
-  sessionID: 'cbdd7a2b-60e7-425f-93e1-7717dd4cf4d0',
-  isEndDialogue: false,
-  raw:
-   { version: '1.0',
-     session:
-      { new: true,
-        sessionAttributes: {},
-        sessionId: '1caddd16-7207-4dca-b1fa-9281ab3d65b9',
-        user: { userId: 'KkQUK8ZMTzSKTMhVZMDLJw' } },
-     context:
-      { AudioPlayer:
-         { offsetInMilliseconds: 1384,
-           playerActivity: 'STOPPED',
-           repeatMode: 'NONE',
-           stream:
-            { beginAtInMilliseconds: 0,
-              playType: 'NONE',
-              token: 'cbdd7a2b-60e7-425f-93e1-7717dd4cf4d0',
-              url: 'https://www.sample-videos.com/audio/mp3/crowd-cheering.mp3',
-              urlPlayable: true },
-           token: 'cbdd7a2b-60e7-425f-93e1-7717dd4cf4d0',
-           totalInMilliseconds: 27744 },
-        System:
-         { application: { applicationId: 'com.santaclova.moduyori' },
-           device:
-            { deviceId: 'a3234173-57cd-3b8f-8a18-dbbe6226f0d1',
-              display:
-               { size: 'l100',
-                 dpi: 96,
-                 orientation: 'landscape',
-                 contentLayer: { width: 640, height: 360 } } },
-           user: { userId: 'KkQUK8ZMTzSKTMhVZMDLJw' } } },
-     request:
-      { type: 'EventRequest',
-        requestId: 'a592e2a5-0725-4e93-a88a-d3f1f6053b46',
-        timestamp: '2018-09-19T16:04:16Z',
-        locale: 'ko-KR',
-        extensionId: 'com.santaclova.moduyori',
-        intent: { intent: '', name: '', slots: null },
-        event:
-         { namespace: 'AudioPlayer',
-           name: 'PlayStopped',
-           payload:
-            { offsetInMilliseconds: 1384,
-              token: 'cbdd7a2b-60e7-425f-93e1-7717dd4cf4d0' } } } },
-  time: 1537373056214,
-  formerIntent: undefined,
-  recommendation: 2,
-  targetRecipe: '미역국',
-  currentStep: 2,
-  currentIntent: 'PlayStopped',
-  simpleSpeech: undefined,
-  playDirective: undefined,
-  controlDirective: undefined }
-
-
-
-{ version: '0.1.0',
-  sessionAttributes:
-   { formerIntent: undefined,
-     recommendation: 2,
-     recipe: '미역국',
-     step: 2 },
-  response:
-   { card: {},
-     directives: [],
-     shouldEndSession: false,
-     outputSpeech:
-      { type: 'SpeechList',
-        values: [ { type: 'PlainText', lang: 'ko', value: '무엇을 하시겠습니까?' } ] } } }
+             value: '신 김치는 양념을 털고 4㎝ 길이로 썬다. 참치는 체에 밭쳐 참치 기름과 건더기를 따로 분리한다. 참치 기름이 찌개에 들어가면 자칫 국물 맛이 기름지고 맛이 탁할 수가 있으므로 꼭 기름과 건더기를 분리해야 한다. 건더기는 통조림에서 꺼내 덩어리진 것 그대로 넣어야 참치살이 부서지지 않아 찌개가 깔끔하다.' } ] } } }
 -------------------------------------------------------------------------------
