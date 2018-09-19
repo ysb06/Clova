@@ -1,6 +1,7 @@
 'use strict';
 const uuid = require('uuid').v4;
 require('date-utils');
+const util = require('util');
 
 
 //주요 설정
@@ -37,7 +38,7 @@ class ClovaSession {
 			"sessionAttributes": {
                 "formerIntent": this.formerIntent,
                 "recommendation": this.recommendation,
-                "recipe": this.recipe,
+                "recipe": this.targetRecipe,
                 "step": this.currentStep
             },
 			"response": {
@@ -159,13 +160,13 @@ exports.clovaFulfillment = function (req, res) {
     let cDate = new Date();
     console.log('\n--------------------- ' + cDate.toFormat('YYYY-MM-DD HH24:MI:SS') + ' (' +cDate.getTime() + ') ---------------------');
     let currentSession = getCurrentSession(req);
-    console.log(currentSession);
+    console.log(util.inspect(currentSession, false, null, true));
 
     currentSession = detectIntent(currentSession);
 
     console.log('\n\n');
-    console.log(currentSession.result);
-    res.json(currentSession.result);
+    console.log(util.inspect(currentSession.result, false, null, true));
+    //res.json(currentSession.result);
     console.log('-------------------------------------------------------------------------------\n');
 }
 
@@ -226,7 +227,7 @@ function detectIntent(clovaSession) {
 		case 'AskRecipe':
 			{
 				let food = clovaSession.raw.request.intent.slots.food.value;
-				clovaSession.recipe = food;
+				clovaSession.targetRecipe = food;
 				clovaSession.setSimpleSpeech(recommendedTypeList[clovaSession.recommendation] + ' ' + food + '를 만들어 볼까요?');
 				break;
 			}
@@ -234,16 +235,16 @@ function detectIntent(clovaSession) {
 			//추천은 무조건 미역국으로
 			{
 				let food = '미역국';
-				clovaSession.recipe = food;
+				clovaSession.targetRecipe = food;
 				clovaSession.setSimpleSpeech(food + '를 만들어 볼까요?');
 				break;
 			}
 		case 'Clova.YesIntent':
 			{
-				let food = clovaSession.recipe;
+				let food = clovaSession.targetRecipe;
 				//clovaSession.setSimpleSpeech("요리왕이 " + food + " 레시피에 대해 다 알려줄테니까 걱정마세요. 먼저 원활한 요리 진행을 위해 저랑 약속 하나만 하고 갈까요?\r\n잘 들어주세요. 먼저 요리가 진행되는 동안에는 노래가 나올 거에요. 단계가 끝나면 노래를 멈추어 주세요. 그리고나서 다음 단계를 알고 싶으면 '다음', 이전 단계를 알고 싶으면 '이전', 다시 듣고 싶으면 '다시'라고 말해주세요");
 				clovaSession.setSimpleSpeech("요리왕이 " + food + "에 대해 알려줍니다.");
-				clovaSession.step = 0;
+				clovaSession.currentStep = 0;
 				break;
 			}
 		case 'Clova.NoIntent':
@@ -252,21 +253,21 @@ function detectIntent(clovaSession) {
 			break;
 		case 'NextStep':
 		case 'Clova.NextIntent':
-			if(clovaSession.step < 5) {
-				clovaSession.step = clovaSession.step + 1;
+			if(clovaSession.currentStep < 5) {
+				clovaSession.currentStep = clovaSession.currentStep + 1;
 			}
-			clovaSession.setSimpleSpeech(getRecipeStep(clovaSession.recipe, clovaSession.step))
+			clovaSession.setSimpleSpeech(getRecipeStep(clovaSession.targetRecipe, clovaSession.currentStep))
 			clovaSession.setPlayDirective(waitingMusic);
 			break;
 		case 'PreviousStep':
-			if(clovaSession.step > 1) {
-				clovaSession.step = clovaSession.step - 1;
+			if(clovaSession.currentStep > 1) {
+				clovaSession.currentStep = clovaSession.currentStep - 1;
 			}
-			clovaSession.setSimpleSpeech(getRecipeStep(clovaSession.recipe, clovaSession.step))
+			clovaSession.setSimpleSpeech(getRecipeStep(clovaSession.targetRecipe, clovaSession.currentStep))
 			clovaSession.setPlayDirective(waitingMusic);
 			break;
 		case 'RepeatStep':
-            clovaSession.setSimpleSpeech(getRecipeStep(clovaSession.recipe, clovaSession.step))
+            clovaSession.setSimpleSpeech(getRecipeStep(clovaSession.targetRecipe, clovaSession.currentStep))
             clovaSession.setPlayDirective(waitingMusic);
             break;
 		case 'PlayPaused':
@@ -335,7 +336,7 @@ function getRecipeStep(recipe, step) {
 
 
 //-------------------테스트 코드-----------------//
-/*
+//*
 let request = {body: { version: '1.0',
 session:
  { new: true,
