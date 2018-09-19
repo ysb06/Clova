@@ -148,35 +148,35 @@ class ClovaResult {
 		this.recommendation = Math.floor(Math.random() * 3) + 1;
 	}
 	
-	get formerIntent() {
+	getFormerIntent() {
 		return this.result.sessionAttributes.formerIntent;
 	}
 	
-	get recommendation() {
+	getRecommendation() {
 		return this.result.sessionAttributes.recommendation;
 	}
 	
-	get recipe() {
+	getRecipe() {
 		return this.result.sessionAttributes.recipe;
 	}
 	
-	get step() {
+	getStep() {
 		return this.result.sessionAttributes.step;
 	}
 	
-	set formerIntent(value) {
+	setFormerIntent(value) {
 		this.result.sessionAttributes.formerIntent = value;
 	}
 	
-	set recommendation(value) {
+	setRecommendation(value) {
 		this.result.sessionAttributes.recommendation = value;
 	}
 	
-	set recipe(value) {
+	setRecipe(value) {
 		this.result.sessionAttributes.recipe = value;
 	}
 	
-	set step(value) {
+	setStep(value) {
 		this.result.sessionAttributes.step = value;
 	}
 }
@@ -286,40 +286,40 @@ function detectIntent(clovaResponse) {
 			break;
 		case 'AskRecipe':
 			let recipe = clovaResponse.params.request.intent.slots.food.value;
-			clovaResponse.recipe = recipe;
-			clovaResponse.addSimpleSpeech(recommendedTypeList[clovaResponse.recommendation] + ' ' + recipe + '를 만들어 볼까요?');
+			clovaResponse.setRecipe(recipe);
+			clovaResponse.addSimpleSpeech(recommendedTypeList[clovaResponse.getRecommendation()] + ' ' + recipe + '를 만들어 볼까요?');
 			break;
 		case 'AskRecipeRecommendation':
 			//추천은 무조건 미역국으로
 			let recipe = '미역국';
-			clovaResponse.recipe = recipe;
+			clovaResponse.setRecipe(recipe);
 			clovaResponse.addSimpleSpeech(recipe + '를 만들어 볼까요?');
 			break;
 		case 'Clova.YesIntent':
-			let recipe = clovaResponse.recipe
-			clovaResponse.addSimpleSpeech("요리왕이 " + clovaResponse.recipe + " 레시피에 대해 다 알려줄테니까 걱정마세요. 먼저 원활한 요리 진행을 위해 저랑 약속 하나만 하고 갈까요?\r\n잘 들어주세요. 먼저 요리가 진행되는 동안에는 노래가 나올 거에요. 단계가 끝나면 노래를 멈추어 주세요. 그리고나서 다음 단계를 알고 싶으면 '다음', 이전 단계를 알고 싶으면 '이전', 다시 듣고 싶으면 '다시'라고 말해주세요");
+			let recipe = clovaResponse.getRecipe();
+			clovaResponse.addSimpleSpeech("요리왕이 " + recipe + " 레시피에 대해 다 알려줄테니까 걱정마세요. 먼저 원활한 요리 진행을 위해 저랑 약속 하나만 하고 갈까요?\r\n잘 들어주세요. 먼저 요리가 진행되는 동안에는 노래가 나올 거에요. 단계가 끝나면 노래를 멈추어 주세요. 그리고나서 다음 단계를 알고 싶으면 '다음', 이전 단계를 알고 싶으면 '이전', 다시 듣고 싶으면 '다시'라고 말해주세요");
 			clovaResponse.step = 0;
 			break;
 		case 'Clova.NoIntent':
 			clovaResponse.setRecommendation();
-			clovaResponse.addSimpleSpeech("음.. 그럼 다른 요리를 해볼까요?\n\r만들고 싶은 음식을 말씀해 주세요.\n\r잘 모르시겠다면 요리왕이 " + recommendedTypeList[clovaResponse.recommendation] + " 요리를 추천해 드릴께요.");
+			clovaResponse.addSimpleSpeech("음.. 그럼 다른 요리를 해볼까요?\n\r만들고 싶은 음식을 말씀해 주세요.\n\r잘 모르시겠다면 요리왕이 " + recommendedTypeList[clovaResponse.getRecommendation()] + " 요리를 추천해 드릴께요.");
 			break;
 		case 'NextStep':
-			if(clovaResponse.step < 5) {
-				clovaResponse.step = clovaResponse.step + 1;
+			if(clovaResponse.getStep() < 5) {
+				clovaResponse.setStep(clovaResponse.getStep() + 1);
 			}
-			clovaResponse.addSimpleSpeech(getRecipeStep(clovaResponse.recipe, clovaResponse.step))
+			clovaResponse.addSimpleSpeech(getRecipeStep(clovaResponse.getRecipe(), clovaResponse.getStep()))
 			clovaResponse.addPlayDirective(waitingMusic);
 			break;
 		case 'PreviousStep':
 			if(clovaResponse.step > 1) {
 				clovaResponse.step = clovaResponse.step - 1;
 			}
-			clovaResponse.addSimpleSpeech(getRecipeStep(clovaResponse.recipe, clovaResponse.step))
+			clovaResponse.addSimpleSpeech(getRecipeStep(clovaResponse.getRecipe(), clovaResponse.getStep()))
 			clovaResponse.addPlayDirective(waitingMusic);
 			break;
 		case 'RepeatStep':
-			clovaResponse.addSimpleSpeech(getRecipeStep(clovaResponse.recipe, clovaResponse.step))
+			clovaResponse.addSimpleSpeech(getRecipeStep(clovaResponse.getRecipe(), clovaResponse.getStep()))
 			clovaResponse.addPlayDirective(waitingMusic);
 			break;
 		default:
