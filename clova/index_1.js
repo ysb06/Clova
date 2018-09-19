@@ -87,7 +87,11 @@ class ClovaSession {
                 this.currentIntent = 'Unknown Intent';
                 break;
         }        
-    }
+	}
+	
+	updateSessionID() {
+		this.sessionID = this.raw.session.sessionId;
+	}
 
     setSimpleSpeech(text) {		
         let output = {
@@ -286,6 +290,7 @@ function detectIntent(clovaSession) {
 					}
 					clovaSession.setSimpleSpeech(getRecipeStep(clovaSession.targetRecipe, clovaSession.currentStep))
 					clovaSession.setPlayDirective(waitingMusic);
+					updateSessionID();
 					break;
 				default:
 					break;
