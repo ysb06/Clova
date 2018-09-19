@@ -197,7 +197,8 @@ function getCurrentSession(req) {
 function detectIntent(clovaSession) {
 	let processOK = false;		//제대로 된 시나리오에 따라 Intent가 처리됬는지 여부
 
-	switch(clovaSession.intent) {
+	switch(clovaSession.currentIntent) {
+        case 'LaunchRequest':
 		case 'Clova.GuideIntent':
 			clovaSession.setRecommendation();
 			clovaSession.setSimpleSpeech('안녕하세요. 모두의 요리사 요리왕입니다.\n\r만들고 싶은 음식을 말씀해 주세요.\n\r잘 모르시겠다면 요리왕이 ' + recommendedTypeList[clovaResponse.recommendation] + ' 요리를 추천해 드릴께요');
