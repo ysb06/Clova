@@ -1,6 +1,6 @@
 const waitingMusic = 'https://www.sample-videos.com/audio/mp3/crowd-cheering.mp3'
 const uuid = require('uuid').v4;
-const timeUtil = require('date-utils');
+require('date-utils');
 const { DOMAIN } = require('../config');
 
 const sessionExpireTime = 600000;
@@ -16,7 +16,9 @@ class ClovaResult {
 		this.timeID = timeStamp;
 		try {
 			this.sessionID = request.body.session.sessionId;
-			this.audioToken = request.body.context.AudioPlayer.token;
+			if(!(request.body.context.AudioPlayer.token === undefined)) {
+				this.audioToken = request.body.context.AudioPlayer.token;
+			}
 		} catch (e) {
 			console.log(e);
 		}
@@ -33,17 +35,15 @@ class ClovaResult {
 		}
 		// Attribute 초기화, Attribute가 없으면 에러로 인한 무시
 		try {
-			attributes.recommendation = params.session.sessionAttributes.recommendation;
-		} catch (e) {
-			console.log(e);
-		}
-		try {
-			attributes.recipe = params.session.sessionAttributes.recipe;
-		} catch (e) {
-			console.log(e);
-		}
-		try {
-			attributes.step = params.session.sessionAttributes.step;
+			if(!(params.session.sessionAttributes.recommendation === undefined)) {
+				attributes.recommendation = params.session.sessionAttributes.recommendation;
+			}
+			if(!(params.session.sessionAttributes.recipe === undefined)) {
+				attributes.recipe = params.session.sessionAttributes.recipe;
+			}
+			if(!(params.session.sessionAttributes.step === undefined)) {
+				attributes.step = params.session.sessionAttributes.step;
+			}
 		} catch (e) {
 			console.log(e);
 		}
@@ -71,7 +71,6 @@ class ClovaResult {
 			console.log(e);
 		}
 	}
-	
 	
 	addSimpleSpeech(text) {
 		let plainText = {

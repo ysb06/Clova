@@ -2,7 +2,7 @@ const express = require('express');
 const bodyParser = require('body-parser');
 
 const {SERVER_PORT} = require('./config.js');
-const clova = require('./clova');
+const clova = require('./clova/index_1');
 
 const app = express();
 
