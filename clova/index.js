@@ -277,6 +277,7 @@ function detectRequest(requestType, clovaResponse) {
 
 function detectIntent(clovaResponse) {
 	let processOK = false;		//제대로 된 시나리오에 따라 Intent가 처리됬는지 여부
+	let food;
 
 	switch(clovaResponse.intent) {
 		case 'Clova.GuideIntent':
@@ -285,13 +286,13 @@ function detectIntent(clovaResponse) {
 			//현 Intent를 포함하여 이전 Intent 조건이 맞을 때만 기능 수행
 			break;
 		case 'AskRecipe':
-			let food = clovaResponse.params.request.intent.slots.food.value;
+			food = clovaResponse.params.request.intent.slots.food.value;
 			clovaResponse.setRecipe(food);
 			clovaResponse.addSimpleSpeech(recommendedTypeList[clovaResponse.getRecommendation()] + ' ' + food + '를 만들어 볼까요?');
 			break;
 		case 'AskRecipeRecommendation':
 			//추천은 무조건 미역국으로
-			let food = '미역국';
+			food = '미역국';
 			clovaResponse.setRecipe(food);
 			clovaResponse.addSimpleSpeech(food + '를 만들어 볼까요?');
 			break;
