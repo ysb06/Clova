@@ -166,7 +166,7 @@ exports.clovaFulfillment = function (req, res) {
 
     console.log('\n\n');
     console.log(util.inspect(currentSession.result, false, null, true));
-    //res.json(currentSession.result);
+    res.json(currentSession.result);
     console.log('-------------------------------------------------------------------------------\n');
 }
 
@@ -336,7 +336,7 @@ function getRecipeStep(recipe, step) {
 
 
 //-------------------테스트 코드-----------------//
-//*
+/*
 let request = {body: { version: '1.0',
 session:
  { new: true,
