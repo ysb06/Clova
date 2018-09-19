@@ -147,7 +147,7 @@ exports.clovaFulfillment = function (req, res) {
     let currentSession = getCurrentSession(req);
     console.log(currentSession);
 
-    detectIntent(currentSession);
+    currentSession = detectIntent(currentSession);
 
     console.log('\n\n');
     console.log(currentSession.result);
@@ -262,7 +262,7 @@ function detectIntent(clovaSession) {
             clovaSession.setSimpleSpeech('죄송해요. 잘 모르겠네요. 다시 말씀해 주세요');
 			break;
 	}
-	return clovaResponse;
+	return clovaSession;
 }
 
 function getRecipeStep(recipe, step) {
