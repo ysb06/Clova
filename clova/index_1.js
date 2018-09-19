@@ -145,8 +145,12 @@ exports.clovaFulfillment = function (req, res) {
     let cDate = new Date();
     console.log('\n--------------------- ' + cDate.toFormat('YYYY-MM-DD HH24:MI:SS') + ' (' +cDate.getTime() + ') ---------------------');
     let currentSession = getCurrentSession(req);
-
     console.log(currentSession);
+
+    detectIntent(currentSession);
+    
+    console.log('\n\n');
+    console.log(currentSession.result);
     res.json(currentSession.result);
     console.log('-------------------------------------------------------------------------------\n');
 }
