@@ -265,7 +265,7 @@ function detectIntent(clovaSession) {
         case 'PlayStopped':
             clovaSession.setSimpleSpeech('무엇을 하시겠습니까?');
             clovaSession.setPlayControllerDirective('Stop');
-            clovaSession.setDialogueContinue();
+            clovaSession.isEndDialogue = false;
             break;
 		default:
             clovaSession.setSimpleSpeech('죄송해요. 잘 모르겠네요. 다시 말씀해 주세요');
