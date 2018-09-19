@@ -44,7 +44,16 @@ class ClovaSession {
 				"shouldEndSession": this.isEndDialogue
 			}
         }
-        
+        if(!(this.simpleSpeech === undefined)) {
+            response.response.outputSpeech = this.simpleSpeech;
+        }
+        if(!(this.playDirective === undefined)) {
+            response.response.directives.push(this.playDirective);
+        }
+        if(!(this.controlDirective === undefined)) {
+            response.response.directives.push(this.controlDirective);
+        }
+
         return response;
     }
 
