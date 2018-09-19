@@ -290,7 +290,7 @@ function detectIntent(clovaSession) {
 					}
 					clovaSession.setSimpleSpeech(getRecipeStep(clovaSession.targetRecipe, clovaSession.currentStep))
 					clovaSession.setPlayDirective(waitingMusic);
-					updateSessionID();
+					clovaSession.updateSessionID();
 					break;
 				default:
 					break;
