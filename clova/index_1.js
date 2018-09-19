@@ -88,10 +88,6 @@ class ClovaSession {
                 break;
         }        
 	}
-	
-	updateSessionID() {
-		this.sessionID = this.raw.session.sessionId;
-	}
 
     setSimpleSpeech(text) {		
         let output = {
@@ -117,7 +113,8 @@ class ClovaSession {
 			},
 			payload: {
 				audioItem: {
-					audioItemId: '3719c0f5-f300-4dea-ab7b-67cc35272c10',
+					//audioItemId: '3719c0f5-f300-4dea-ab7b-67cc35272c10',
+					audioItemId: uuid(),	//재생에 문제 있을 경우 여기를 주의
 					stream: {
 						beginAtInMilliseconds: 0,
 						playType: "NONE",
@@ -285,7 +282,6 @@ function detectIntent(clovaSession) {
 		case 'PlayStopped':
 			switch(clovaSession.formerIntent) {
 				case 'Clova.NextIntent':
-					clovaSession.updateSessionID();
 					if(clovaSession.currentStep < 5) {
 						clovaSession.currentStep = clovaSession.currentStep + 1;
 					}
