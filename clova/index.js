@@ -34,7 +34,15 @@ class ClovaResult {
 		// Attribute 초기화, Attribute가 없으면 에러로 인한 무시
 		try {
 			attributes.recommendation = params.session.sessionAttributes.recommendation;
+		} catch (e) {
+			console.log(e);
+		}
+		try {
 			attributes.recipe = params.session.sessionAttributes.recipe;
+		} catch (e) {
+			console.log(e);
+		}
+		try {
 			attributes.step = params.session.sessionAttributes.step;
 		} catch (e) {
 			console.log(e);
