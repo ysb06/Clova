@@ -265,11 +265,14 @@ function detectIntent(clovaSession) {
             clovaSession.setSimpleSpeech(getRecipeStep(clovaSession.recipe, clovaSession.step))
             clovaSession.setPlayDirective(waitingMusic);
             break;
-        case 'PlayPaused':
+		case 'PlayPaused':
+			clovaSession.setSimpleSpeech('무엇을 하시겠습니까?');
+			clovaSession.setPlayControllerDirective('Pause');
+			clovaSession.isEndDialogue = false;
+			break;
         case 'PlayStopped':
             clovaSession.setSimpleSpeech('무엇을 하시겠습니까?');
             clovaSession.setPlayControllerDirective('Stop');
-            clovaSession.isEndDialogue = false;
 			break;
 		case 'PlayStarted':
 		case 'PlayFinished':
