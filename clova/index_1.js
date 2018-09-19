@@ -217,7 +217,8 @@ function detectIntent(clovaSession) {
         case 'LaunchRequest':
 		case 'Clova.GuideIntent':
 			clovaSession.setRecommendation();
-			clovaSession.setSimpleSpeech('안녕하세요. 모두의 요리사 요리왕입니다.\n\r만들고 싶은 음식을 말씀해 주세요.\n\r잘 모르시겠다면 요리왕이 ' + recommendedTypeList[clovaSession.recommendation] + ' 요리를 추천해 드릴께요');
+			//clovaSession.setSimpleSpeech('안녕하세요. 모두의 요리사 요리왕입니다.\n\r만들고 싶은 음식을 말씀해 주세요.\n\r잘 모르시겠다면 요리왕이 ' + recommendedTypeList[clovaSession.recommendation] + ' 요리를 추천해 드릴께요');
+			clovaSession.setSimpleSpeech('먹고 싶은 음식은?');
 			//현 Intent를 포함하여 이전 Intent 조건이 맞을 때만 기능 수행
 			break;
 		case 'AskRecipe':
@@ -267,12 +268,10 @@ function detectIntent(clovaSession) {
             break;
 		case 'PlayPaused':
 			clovaSession.setSimpleSpeech('무엇을 하시겠습니까?');
-			clovaSession.setPlayControllerDirective('Pause');
 			clovaSession.isEndDialogue = false;
 			break;
         case 'PlayStopped':
             clovaSession.setSimpleSpeech('무엇을 하시겠습니까?');
-            clovaSession.setPlayControllerDirective('Stop');
 			break;
 		case 'PlayStarted':
 		case 'PlayFinished':
