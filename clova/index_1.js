@@ -239,7 +239,8 @@ function detectIntent(clovaSession) {
 		case 'Clova.YesIntent':
 			{
 				let food = clovaSession.recipe;
-				clovaSession.setSimpleSpeech("요리왕이 " + food + " 레시피에 대해 다 알려줄테니까 걱정마세요. 먼저 원활한 요리 진행을 위해 저랑 약속 하나만 하고 갈까요?\r\n잘 들어주세요. 먼저 요리가 진행되는 동안에는 노래가 나올 거에요. 단계가 끝나면 노래를 멈추어 주세요. 그리고나서 다음 단계를 알고 싶으면 '다음', 이전 단계를 알고 싶으면 '이전', 다시 듣고 싶으면 '다시'라고 말해주세요");
+				//clovaSession.setSimpleSpeech("요리왕이 " + food + " 레시피에 대해 다 알려줄테니까 걱정마세요. 먼저 원활한 요리 진행을 위해 저랑 약속 하나만 하고 갈까요?\r\n잘 들어주세요. 먼저 요리가 진행되는 동안에는 노래가 나올 거에요. 단계가 끝나면 노래를 멈추어 주세요. 그리고나서 다음 단계를 알고 싶으면 '다음', 이전 단계를 알고 싶으면 '이전', 다시 듣고 싶으면 '다시'라고 말해주세요");
+				clovaSession.setSimpleSpeech("요리왕이 " + food + "에 대해 알려줍니다.");
 				clovaSession.step = 0;
 				break;
 			}
@@ -275,7 +276,7 @@ function detectIntent(clovaSession) {
 			break;
 		case 'PlayStarted':
 		case 'PlayFinished':
-			clovaSession.setPlayDirective(waitingMusic);
+		case 'PlayResumed':
 			break;
 		default:
             clovaSession.setSimpleSpeech('죄송해요. 잘 모르겠네요. 다시 말씀해 주세요');
