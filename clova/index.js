@@ -285,19 +285,19 @@ function detectIntent(clovaResponse) {
 			//현 Intent를 포함하여 이전 Intent 조건이 맞을 때만 기능 수행
 			break;
 		case 'AskRecipe':
-			let recipe = clovaResponse.params.request.intent.slots.food.value;
-			clovaResponse.setRecipe(recipe);
-			clovaResponse.addSimpleSpeech(recommendedTypeList[clovaResponse.getRecommendation()] + ' ' + recipe + '를 만들어 볼까요?');
+			let food = clovaResponse.params.request.intent.slots.food.value;
+			clovaResponse.setRecipe(food);
+			clovaResponse.addSimpleSpeech(recommendedTypeList[clovaResponse.getRecommendation()] + ' ' + food + '를 만들어 볼까요?');
 			break;
 		case 'AskRecipeRecommendation':
 			//추천은 무조건 미역국으로
-			let recipe = '미역국';
-			clovaResponse.setRecipe(recipe);
-			clovaResponse.addSimpleSpeech(recipe + '를 만들어 볼까요?');
+			let food = '미역국';
+			clovaResponse.setRecipe(food);
+			clovaResponse.addSimpleSpeech(food + '를 만들어 볼까요?');
 			break;
 		case 'Clova.YesIntent':
-			let recipe = clovaResponse.getRecipe();
-			clovaResponse.addSimpleSpeech("요리왕이 " + recipe + " 레시피에 대해 다 알려줄테니까 걱정마세요. 먼저 원활한 요리 진행을 위해 저랑 약속 하나만 하고 갈까요?\r\n잘 들어주세요. 먼저 요리가 진행되는 동안에는 노래가 나올 거에요. 단계가 끝나면 노래를 멈추어 주세요. 그리고나서 다음 단계를 알고 싶으면 '다음', 이전 단계를 알고 싶으면 '이전', 다시 듣고 싶으면 '다시'라고 말해주세요");
+			let food = clovaResponse.getRecipe();
+			clovaResponse.addSimpleSpeech("요리왕이 " + food + " 레시피에 대해 다 알려줄테니까 걱정마세요. 먼저 원활한 요리 진행을 위해 저랑 약속 하나만 하고 갈까요?\r\n잘 들어주세요. 먼저 요리가 진행되는 동안에는 노래가 나올 거에요. 단계가 끝나면 노래를 멈추어 주세요. 그리고나서 다음 단계를 알고 싶으면 '다음', 이전 단계를 알고 싶으면 '이전', 다시 듣고 싶으면 '다시'라고 말해주세요");
 			clovaResponse.step = 0;
 			break;
 		case 'Clova.NoIntent':
