@@ -285,12 +285,12 @@ function detectIntent(clovaSession) {
 		case 'PlayStopped':
 			switch(clovaSession.formerIntent) {
 				case 'Clova.NextIntent':
+					clovaSession.updateSessionID();
 					if(clovaSession.currentStep < 5) {
 						clovaSession.currentStep = clovaSession.currentStep + 1;
 					}
 					clovaSession.setSimpleSpeech(getRecipeStep(clovaSession.targetRecipe, clovaSession.currentStep))
 					clovaSession.setPlayDirective(waitingMusic);
-					clovaSession.updateSessionID();
 					break;
 				default:
 					break;
