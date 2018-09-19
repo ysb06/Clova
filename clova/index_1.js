@@ -190,7 +190,7 @@ function getCurrentSession(req) {
     //저장된 세션들 중 하나가 현재 세션인지 판단
     for(let i = 0; i < fullfilmentsResult.length; i++) {
         if(req.body.context.hasOwnProperty('AudioPlayer')) {
-            if(fullfilmentsResult[i].sessionID == req.body.context.AudioPlayer.token) {
+            if(fullfilmentsResult[i].sessionID == req.body.context.AudioPlayer.stream.token) {
 				console.log('[' + fullfilmentsResult.length + '] After audio session');
                 session = fullfilmentsResult[i];
                 session.update(req);
