@@ -181,7 +181,7 @@ function getCurrentSession(req) {
     //먼저 시간이 오래된 세션 제거
     for(let i = 0; i < fullfilmentsResult.length; i++) {
         if(cDate.getTime() - fullfilmentsResult[i].time > sessionExpireTime) {
-            console.log('Splice');
+            console.log('Expired: ' + fullfilmentsResult[i].sessionID);
             fullfilmentsResult.splice(i, 1);
             session = undefined;
         }
@@ -191,11 +191,13 @@ function getCurrentSession(req) {
     for(let i = 0; i < fullfilmentsResult.length; i++) {
         if(req.body.context.hasOwnProperty('AudioPlayer')) {
             if(fullfilmentsResult[i].sessionID == req.body.context.AudioPlayer.token) {
+				console.log('After audio session');
                 session = fullfilmentsResult[i];
                 session.update(req);
             }
         } else {
             if(fullfilmentsResult[i].sessionID == req.body.session.sessionId) {
+				console.log('In dialogue session');
                 session = fullfilmentsResult[i];
                 session.update(req);
             }
@@ -206,7 +208,7 @@ function getCurrentSession(req) {
     if(session === undefined) {
         let newSession = new ClovaSession(req);
         fullfilmentsResult.push(newSession);
-        console.log('New Dialogue');
+        console.log('New dialogue session');
         return newSession;
     } else {
         return session;
