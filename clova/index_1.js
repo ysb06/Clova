@@ -191,13 +191,13 @@ function getCurrentSession(req) {
     for(let i = 0; i < fullfilmentsResult.length; i++) {
         if(req.body.context.hasOwnProperty('AudioPlayer')) {
             if(fullfilmentsResult[i].sessionID == req.body.context.AudioPlayer.token) {
-				console.log('After audio session');
+				console.log('[' + fullfilmentsResult.length + '] After audio session');
                 session = fullfilmentsResult[i];
                 session.update(req);
             }
         } else {
             if(fullfilmentsResult[i].sessionID == req.body.session.sessionId) {
-				console.log('In dialogue session');
+				console.log('[' + fullfilmentsResult.length + '] In dialogue session');
                 session = fullfilmentsResult[i];
                 session.update(req);
             }
@@ -208,7 +208,7 @@ function getCurrentSession(req) {
     if(session === undefined) {
         let newSession = new ClovaSession(req);
         fullfilmentsResult.push(newSession);
-        console.log('New dialogue session');
+        console.log('[' + fullfilmentsResult.length + '] New dialogue session');
         return newSession;
     } else {
         return session;
