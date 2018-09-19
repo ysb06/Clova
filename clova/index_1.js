@@ -244,6 +244,7 @@ function detectIntent(clovaSession) {
 			clovaSession.setSimpleSpeech("음.. 그럼 다른 요리를 해볼까요?\n\r만들고 싶은 음식을 말씀해 주세요.\n\r잘 모르시겠다면 요리왕이 " + recommendedTypeList[clovaSession.recommendation] + " 요리를 추천해 드릴께요.");
 			break;
 		case 'NextStep':
+		case 'Clova.NextIntent':
 			if(clovaSession.step < 5) {
 				clovaSession.step = clovaSession.step + 1;
 			}
@@ -266,7 +267,11 @@ function detectIntent(clovaSession) {
             clovaSession.setSimpleSpeech('무엇을 하시겠습니까?');
             clovaSession.setPlayControllerDirective('Stop');
             clovaSession.isEndDialogue = false;
-            break;
+			break;
+		case 'PlayStarted':
+		case 'PlayFinished':
+			clovaSession.setPlayDirective(waitingMusic);
+			break;
 		default:
             clovaSession.setSimpleSpeech('죄송해요. 잘 모르겠네요. 다시 말씀해 주세요');
 			break;
@@ -276,7 +281,7 @@ function detectIntent(clovaSession) {
 
 function getRecipeStep(recipe, step) {
 	//추후 데이터베이스에서 데이터를 받는 것으로 수정
-	console.log("현재 요리: " + recipe + "? " + (recipe == "미역국") + ", " +step);
+	console.log("현재 요리: " + recipe + "? " + (recipe == "미역국") + ", " + step);
 	let content = "";
 	switch(step) {
 		case 1:
