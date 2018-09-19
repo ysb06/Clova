@@ -65,7 +65,10 @@ class ClovaSession {
         this.formerIntent = req.body.session.sessionAttributes.formerIntent;
         this.recommendation = req.body.session.sessionAttributes.recommendation;
         this.targetRecipe = req.body.session.sessionAttributes.recipe;
-        this.currentStep = req.body.session.sessionAttributes.step;
+		this.currentStep = req.body.session.sessionAttributes.step;
+		this.simpleSpeech = undefined;
+        this.playDirective = undefined;
+        this.controlDirective = undefined;
 
         switch(req.body.request.type) {
             case "IntentRequest":
