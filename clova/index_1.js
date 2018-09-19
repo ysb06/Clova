@@ -148,7 +148,7 @@ exports.clovaFulfillment = function (req, res) {
     console.log(currentSession);
 
     detectIntent(currentSession);
-    
+
     console.log('\n\n');
     console.log(currentSession.result);
     res.json(currentSession.result);
@@ -205,14 +205,14 @@ function detectIntent(clovaSession) {
         case 'LaunchRequest':
 		case 'Clova.GuideIntent':
 			clovaSession.setRecommendation();
-			clovaSession.setSimpleSpeech('안녕하세요. 모두의 요리사 요리왕입니다.\n\r만들고 싶은 음식을 말씀해 주세요.\n\r잘 모르시겠다면 요리왕이 ' + recommendedTypeList[clovaResponse.recommendation] + ' 요리를 추천해 드릴께요');
+			clovaSession.setSimpleSpeech('안녕하세요. 모두의 요리사 요리왕입니다.\n\r만들고 싶은 음식을 말씀해 주세요.\n\r잘 모르시겠다면 요리왕이 ' + recommendedTypeList[clovaSession.recommendation] + ' 요리를 추천해 드릴께요');
 			//현 Intent를 포함하여 이전 Intent 조건이 맞을 때만 기능 수행
 			break;
 		case 'AskRecipe':
 			{
 				let food = clovaSession.raw.request.intent.slots.food.value;
 				clovaSession.recipe = food;
-				clovaSession.setSimpleSpeech(recommendedTypeList[clovaResponse.getRecommendation()] + ' ' + food + '를 만들어 볼까요?');
+				clovaSession.setSimpleSpeech(recommendedTypeList[clovaSession.recommendation] + ' ' + food + '를 만들어 볼까요?');
 				break;
 			}
 		case 'AskRecipeRecommendation':
@@ -232,7 +232,7 @@ function detectIntent(clovaSession) {
 			}
 		case 'Clova.NoIntent':
             clovaSession.setRecommendation();
-			clovaSession.setSimpleSpeech("음.. 그럼 다른 요리를 해볼까요?\n\r만들고 싶은 음식을 말씀해 주세요.\n\r잘 모르시겠다면 요리왕이 " + recommendedTypeList[clovaResponse.getRecommendation()] + " 요리를 추천해 드릴께요.");
+			clovaSession.setSimpleSpeech("음.. 그럼 다른 요리를 해볼까요?\n\r만들고 싶은 음식을 말씀해 주세요.\n\r잘 모르시겠다면 요리왕이 " + recommendedTypeList[clovaSession.recommendation] + " 요리를 추천해 드릴께요.");
 			break;
 		case 'NextStep':
 			if(clovaSession.step < 5) {
