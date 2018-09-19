@@ -1,5 +1,7 @@
+'use strict';
 const uuid = require('uuid').v4;
 require('date-utils');
+
 
 //주요 설정
 const waitingMusic = 'https://www.sample-videos.com/audio/mp3/crowd-cheering.mp3'   //대기 음악
@@ -63,9 +65,9 @@ class ClovaSession {
         this.raw = req.body;
         this.time = dateNow.getTime();
         this.formerIntent = req.body.session.sessionAttributes.formerIntent;
-        this.recommendation = req.body.session.sessionAttributes.recommendation;
-        this.targetRecipe = req.body.session.sessionAttributes.recipe;
-		this.currentStep = req.body.session.sessionAttributes.step;
+        //this.recommendation = req.body.session.sessionAttributes.recommendation;
+        //this.targetRecipe = req.body.session.sessionAttributes.recipe;
+		//this.currentStep = req.body.session.sessionAttributes.step;
 		this.simpleSpeech = undefined;
         this.playDirective = undefined;
         this.controlDirective = undefined;
