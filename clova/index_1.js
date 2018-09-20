@@ -110,7 +110,8 @@ class ClovaSession {
 			header: {
 				namespace: "AudioPlayer",
 				name: "Play",
-				messageId: "3e57f11a-a02d-4b6f-b183-fdfb6105c650"
+				dialogRequestId: uuid(),
+				messageId: uuid()
 			},
 			payload: {
 				audioItem: {
@@ -227,8 +228,8 @@ function detectIntent(clovaSession) {
 	switch(clovaSession.currentIntent) {
         case 'LaunchRequest':
 		case 'Clova.GuideIntent':
-			clovaSession.setRecommendation();
-			//clovaSession.setSimpleSpeech('안녕하세요. 모두의 요리사 요리왕입니다.\n\r만들고 싶은 음식을 말씀해 주세요.\n\r잘 모르시겠다면 요리왕이 ' + recommendedTypeList[clovaSession.recommendation] + ' 요리를 추천해 드릴께요');
+			//clovaSession.setRecommendation();
+			clovaSession.setSimpleSpeech('안녕하세요. 모두의 요리사 요리왕입니다.\n\r만들고 싶은 음식을 말씀해 주세요.\n\r잘 모르시겠다면 요리왕이 ' + recommendedTypeList[clovaSession.recommendation] + ' 요리를 추천해 드릴께요');
 			clovaSession.setSimpleSpeech('먹고 싶은 음식은?');
 			//현 Intent를 포함하여 이전 Intent 조건이 맞을 때만 기능 수행
 			break;
@@ -250,8 +251,8 @@ function detectIntent(clovaSession) {
 		case 'Clova.YesIntent':
 			{
 				let food = clovaSession.targetRecipe;
-				//clovaSession.setSimpleSpeech("요리왕이 " + food + " 레시피에 대해 다 알려줄테니까 걱정마세요. 먼저 원활한 요리 진행을 위해 저랑 약속 하나만 하고 갈까요?\r\n잘 들어주세요. 먼저 요리가 진행되는 동안에는 노래가 나올 거에요. 단계가 끝나면 노래를 멈추어 주세요. 그리고나서 다음 단계를 알고 싶으면 '다음', 이전 단계를 알고 싶으면 '이전', 다시 듣고 싶으면 '다시'라고 말해주세요");
-				clovaSession.setSimpleSpeech("요리왕이 " + food + "에 대해 알려줍니다.");
+				clovaSession.setSimpleSpeech("요리왕이 " + food + " 레시피에 대해 다 알려줄테니까 걱정마세요. 먼저 원활한 요리 진행을 위해 저랑 약속 하나만 하고 갈까요?\r\n잘 들어주세요. 먼저 요리가 진행되는 동안에는 노래가 나올 거에요. 단계가 끝나면 노래를 멈추어 주세요. 그리고나서 다음 단계를 알고 싶으면 '다음', 이전 단계를 알고 싶으면 '이전', 다시 듣고 싶으면 '다시'라고 말해주세요");
+				//clovaSession.setSimpleSpeech("요리왕이 " + food + "에 대해 알려줍니다.");
 				clovaSession.currentStep = 0;
 				break;
 			}
