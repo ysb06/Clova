@@ -109,7 +109,8 @@ class ClovaSession {
 		let directive = {
 			header: {
 				namespace: "AudioPlayer",
-				name: "Play"
+				name: "Play",
+				messageId: "3e57f11a-a02d-4b6f-b183-fdfb6105c650"
 			},
 			payload: {
 				audioItem: {
@@ -303,6 +304,8 @@ function detectIntent(clovaSession) {
 					clovaSession.setPlayDirective(waitingMusic);
 					break;
 				default:
+					clovaSession.setSimpleSpeech('무엇을 하시겠습니까?');
+					clovaSession.isEndDialogue = false;
 					break;
 			}
 			break;
