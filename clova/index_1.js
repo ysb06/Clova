@@ -5,7 +5,7 @@ const util = require('util');
 
 
 //주요 설정
-const waitingMusic = 'https://www.sample-videos.com/audio/mp3/crowd-cheering.mp3'   //대기 음악
+const waitingMusic = 'http://www.hochmuth.com/mp3/Tchaikovsky_Nocturne__orch.mp3'   //대기 음악
 const sessionExpireTime = 600000;   //만료 시간 (10분)
 const recommendedTypeList = ['맛없는', '한번 맛보면 참을 수 없는', '남녀노소 즐길 수 있는', '기가 막히고 혀가 놀라는'];     //Recommendation 정의
 
@@ -113,8 +113,8 @@ class ClovaSession {
 			},
 			payload: {
 				audioItem: {
-					//audioItemId: '3719c0f5-f300-4dea-ab7b-67cc35272c10',
-					audioItemId: uuid(),	//재생에 문제 있을 경우 여기를 주의
+					audioItemId: '3719c0f5-f300-4dea-ab7b-67cc35272c10',
+					//audioItemId: uuid(),	//재생에 문제 있을 경우 여기를 주의
 					stream: {
 						beginAtInMilliseconds: 0,
 						playType: "NONE",
