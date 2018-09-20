@@ -113,8 +113,8 @@ class ClovaSession {
 			},
 			payload: {
 				audioItem: {
-					audioItemId: '3719c0f5-f300-4dea-ab7b-67cc35272c10',
-					//audioItemId: uuid(),	//재생에 문제 있을 경우 여기를 주의
+					//audioItemId: '3719c0f5-f300-4dea-ab7b-67cc35272c10',
+					audioItemId: uuid(),	//재생에 문제 있을 경우 여기를 주의
 					stream: {
 						beginAtInMilliseconds: 0,
 						playType: "NONE",
