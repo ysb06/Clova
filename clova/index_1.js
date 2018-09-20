@@ -254,15 +254,18 @@ function detectIntent(clovaSession) {
             clovaSession.setRecommendation();
 			clovaSession.setSimpleSpeech("음.. 그럼 다른 요리를 해볼까요?\n\r만들고 싶은 음식을 말씀해 주세요.\n\r잘 모르시겠다면 요리왕이 " + recommendedTypeList[clovaSession.recommendation] + " 요리를 추천해 드릴께요.");
 			break;
+		case 'Clova.NextIntent':	//오디오 재생 중에 다음, 이 경우 Stop에 다다르서야 다음 재생
+			clovaSession.setPlayControllerDirective('Stop');
+			break;
+		case 'Clova.PreviousIntent':	//오디오 재생 중에 다음, 이 경우 Stop에 다다르서야 다음 재생
+			clovaSession.setPlayControllerDirective('Stop');
+			break;
 		case 'NextStep':		//대화 중에 '다음'
 			if(clovaSession.currentStep < 5) {
 				clovaSession.currentStep = clovaSession.currentStep + 1;
 			}
 			clovaSession.setSimpleSpeech(getRecipeStep(clovaSession.targetRecipe, clovaSession.currentStep))
 			clovaSession.setPlayDirective(waitingMusic);
-			break;
-		case 'Clova.NextIntent':	//오디오 재생 중에 다음, 이 경우 Stop에 다다르서야 다음 재생
-			clovaSession.setPlayControllerDirective('Stop');
 			break;
 		case 'PreviousStep':
 			if(clovaSession.currentStep > 1) {
@@ -284,6 +287,13 @@ function detectIntent(clovaSession) {
 				case 'Clova.NextIntent':
 					if(clovaSession.currentStep < 5) {
 						clovaSession.currentStep = clovaSession.currentStep + 1;
+					}
+					clovaSession.setSimpleSpeech(getRecipeStep(clovaSession.targetRecipe, clovaSession.currentStep))
+					clovaSession.setPlayDirective(waitingMusic);
+					break;
+				case 'Clova.PreviousIntent':
+					if(clovaSession.currentStep > 1) {
+						clovaSession.currentStep = clovaSession.currentStep - 1;
 					}
 					clovaSession.setSimpleSpeech(getRecipeStep(clovaSession.targetRecipe, clovaSession.currentStep))
 					clovaSession.setPlayDirective(waitingMusic);
